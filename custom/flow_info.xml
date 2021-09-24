@@ -1,0 +1,65 @@
+<information>
+<site>
+<id>9009A</id>
+<name>Bukit Bauk</name>
+<brand>Endress+Hauser</brand>
+<image>img/EH.png</image>
+<model>PROSONIC 88</model>
+<size></size>
+</site>
+
+<site>
+<id>9103A</id>
+<name>Kerteh 2&amp;3</name>
+<brand>Endress+Hauser</brand>
+<image>img/EH.png</image>
+<model>PROSONIC 89</model>
+<size></size>
+</site>
+
+<site>
+<id>9104A</id>
+<name>Ketengah Jaya</name>
+<brand>Endress+Hauser</brand>
+<image>img/EH.png</image>
+<model>PROSONIC 89</model>
+<size>250mm</size>
+</site>
+
+<site>
+<id>9105A</id>
+<name>Bukit Besi</name>
+<brand>Endress+Hauser</brand>
+<image>img/EH.png</image>
+<model>PROSONIC 88</model>
+<size>500mm</size>
+</site>
+
+<site>
+<id>9106A</id>
+<name>Cermin Kiri</name>
+<brand>Siemens / Danfoss</brand>
+<image>img/S.png</image>
+<model>MAG5000</model>
+<size></size>
+</site>
+
+<site>
+<id>9107A</id>
+<name>Bukit Kemudi</name>
+<brand>Siemens / Danfoss</brand>
+<image>img/S.png</image>
+<model>MAG5000</model>
+<size></size>
+</site>
+
+<site>
+<id>9999</id>
+<name>Not Available</name>
+<brand>Not Available</brand>
+<image>..images/blank.gif</image>
+<model>Not Available</model>
+<size>Not Available</size>
+</site>
+
+</information>

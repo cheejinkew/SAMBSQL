@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Reports UserID="0000" Name="Default">
+    <Report Name="Telemetry Events Report" Value="eventReportsSAMB.aspx"></Report>
+    <Report Name="Telemetry log Report" Value="LogReport.aspx"></Report>
+  </Reports>
+ 
+</Root>
+

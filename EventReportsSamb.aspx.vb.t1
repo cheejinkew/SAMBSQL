@@ -1,0 +1,113 @@
+﻿Imports System.Data.SqlClient
+Imports System.Data
+Imports System.Web.UI
+Partial Class EventReportsSamb
+    Inherits System.Web.UI.Page
+    Public show As Boolean
+    Public Sub GetDistrict()
+        Dim conn As New SqlConnection(System.Configuration.ConfigurationManager.AppSettings("SAMBconnection"))
+        Dim strsql As String
+        Dim sqlcmd As SqlCommand
+        Dim sqldr As SqlDataReader
+
+        strsql = "Select distinct(sitedistrict) from telemetry_site_list_Table order by sitedistrict"
+        sqlcmd = New SqlCommand(strsql, conn)
+        conn.Open()
+        sqldr = sqlcmd.ExecuteReader
+        cboDistrict.Items.Add("Select District")
+        While sqldr.Read
+            cboDistrict.Items.Add(New ListItem(sqldr("sitedistrict"), sqldr("sitedistrict")))
+        End While
+
+        conn.Close()
+
+    End Sub
+    Public Sub GetSite()
+        Dim conn As New SqlConnection(System.Configuration.ConfigurationManager.AppSettings("SAMBconnection"))
+        Dim strsql As String
+        Dim sqlcmd As SqlCommand
+        Dim sqldr As SqlDataReader
+        Try
+            strsql = "Select siteid,sitename from telemetry_site_list_Table where sitedistrict='" & cboDistrict.SelectedValue & "'  order by sitename"
+            sqlcmd = New SqlCommand(strsql, conn)
+            conn.Open()
+            sqldr = sqlcmd.ExecuteReader
+            cboSiteName.Items.Add("Select Site")
+            While sqldr.Read
+                cboSiteName.Items.Add(New ListItem(sqldr("sitename"), sqldr("siteid")))
+            End While
+
+            conn.Close()
+        Catch ex As Exception
+            Response.Write("Site" & ex.Message)
+        End Try
+    End Sub
+    Public Sub GetEvent()
+        Dim conn As New SqlConnection(System.Configuration.ConfigurationManager.AppSettings("SAMBconnection"))
+        Dim strsql As String
+        Dim adpEvents As SqlDataAdapter
+
+        Dim strBeginDateTime As String = Convert.ToDateTime(txtBeginDate.Value).ToString("yyyy-MM-dd") & " " & ddlbh.SelectedValue & ":" & ddlbm.SelectedValue & ":00"
+        Dim strEndDateTime As String = Convert.ToDateTime(txtEndDate.Value).ToString("yyyy-MM-dd") & " " & ddleh.SelectedValue & ":" & ddlem.SelectedValue & ":59"
+        Dim dtEvents As New DataTable
+        Dim r As DataRow
+        With dtEvents.Columns
+            .Add(New DataColumn("No"))
+            .Add(New DataColumn("dtimestamp"))
+            .Add(New DataColumn("sitename"))
+            .Add(New DataColumn("siteId"))
+            .Add(New DataColumn("value"))
+            .Add(New DataColumn("event"))
+        End With
+
+        Try
+            If cboEvents.SelectedValue = "All Types" Then
+                strsql = "Select * from telemetry_event_history_table where siteid='" & cboSiteName.SelectedValue & "' and position='2' and dtimestamp between '" & strBeginDateTime & "' AND '" & strEndDateTime & "' "
+            Else
+                strsql = "Select * from telemetry_event_history_table where siteid='" & cboSiteName.SelectedValue & "' and position='2' and sevent='" & cboEvents.SelectedValue & "' and dtimestamp between '" & strBeginDateTime & "' AND '" & strEndDateTime & "'"
+            End If
+
+            adpEvents = New SqlDataAdapter(strsql, conn)
+            Dim dsEvents As New DataSet
+            adpEvents.Fill(dsEvents)
+            '   If dsEvents.Tables(0).Rows.Count <> 0 Then
+            For i As Integer = 0 To dsEvents.Tables(0).Rows.Count - 1
+                r = dtEvents.NewRow
+                r(0) = i + 1
+                r(1) = dsEvents.Tables(0).Rows(i)("dtimestamp")
+                r(2) = dsEvents.Tables(0).Rows(i)("sitename")
+                r(3) = dsEvents.Tables(0).Rows(i)("siteid")
+                r(4) = dsEvents.Tables(0).Rows(i)("value")
+                r(5) = dsEvents.Tables(0).Rows(i)("sevent")
+            Next
+            'Else
+            'r(0) = "--"
+            'r(1) = "--"
+            'r(2) = "--"
+            'r(3) = "--"
+            'r(4) = "--"
+            'r(5) = "--"
+            'End If
+
+
+        Catch ex As Exception
+            Response.Write("Events" & ex.Message)
+        End Try
+    End Sub
+    Protected Sub btnSubmit_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSubmit.Click
+        GetEvent()
+    End Sub
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Page.IsPostBack = False Then
+            GetDistrict()
+            txtBeginDate.Value = "aaa" 'Now().ToString("yyyy/MM/dd")
+            txtEndDate.Value = "bbb" ' Now().ToString("yyyy/MM/dd")
+        End If
+    End Sub
+
+    Protected Sub cboDistrict_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboDistrict.SelectedIndexChanged
+        cboSiteName.Items.Clear()
+        GetSite()
+    End Sub
+End Class

@@ -1,0 +1,23 @@
+a#pic { text-decoration: none; color:white}
+
+.pump_run {width:33px;height:33px;background-image:url(../images/pump_run.gif);background-repeat:no-repeat;cursor:default}
+.pump_stop {width:33px;height:33px;background-image:url(../images/pump_stop.gif);background-repeat:no-repeat;cursor:default}
+.pump_off {width:33px;height:33px;background-image:url(../images/pump_off.gif);background-repeat:no-repeat;cursor:default}
+
+.labeling {width:60px;font-family:verdana;font-size:13px;font-weight:bolder;color:darkslateblue;text-align:right;cursor:default}
+.indicator {width:110px;background:transparent;font-family:verdana;font-size:11px;font-weight:bolder;color:lime;text-align:left}
+
+.rtu_island {width:235px;height:20px;background:white;border-width:3px;border-style:double;border-color:darkslateblue;filter:alpha(opacity=75);-moz-opacity:.75;opacity:.75;}
+.labelhead {font-family:verdana;font-size:11px;font-style:italic;font-weight:bolder;color:darkslateblue;text-align:right;cursor:default}
+.labels {width:60px;font-family:verdana;font-size:10px;font-weight:bolder;color:darkslateblue;text-align:right;cursor:default}
+.ok {background:transparent;font-family:verdana;font-size:10px;font-weight:bolder;color:blue;text-align:right}
+.fail {background:transparent;font-family:verdana;font-size:10px;font-weight:bolder;color:red;text-align:right}
+.pointer {cursor:pointer}
+
+.waterlevel {position:absolute;bottom:0px;background-color:#00ced1;z-index:2;filter:alpha(opacity=75);-moz-opacity:.75;opacity:.75;}
+.overflowlevel {position:absolute;bottom:0px;background-color:red;z-index:2;filter:alpha(opacity=75);-moz-opacity:.75;opacity:.75;}
+
+div#header {position:absolute;z-index:3;left:13px;top:10px;font-size:24px;font-family:verdana;font-weight:bold;color:white}
+div#reservoir {font-family:verdana;font-size:14px;font-weight:bolder;color:white;text-align:center}
+div#suction {font-family:verdana;font-size:14px;font-weight:bolder;color:white;text-align:center}
+div#logo {position:absolute;top:449px;left:540px;background-color:white;z-index:2}

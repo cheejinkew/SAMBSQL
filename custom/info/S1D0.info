@@ -1,0 +1,10 @@
+<?xml version="1.0" ?> 
+<information siteid="S1D0" sitename="Alam Impian" mimictype="bph-type-b-2">
+  <items name="TWL1" desc="Suction Tank T.W.L." unit="m">43.20</items>
+  <items name="BWL1" desc="Suction Tank B.W.L." unit="m">38.00</items> 
+  <items name="C1" desc="Suction Tank Capacity" unit="gallons">1000850</items> 
+  <items name="PIPE1" desc="Inlet Pipe Size" unit="mm">600</items>
+  <items name="PIPE2" desc="Outlet Pipe Size" unit="mm">700</items>
+  <items name="FRunit" desc="Flow rate unit" unit="l/s">LABEL</items>
+  <items name="FTunit" desc="Flow totalizer unit" unit="m3">LABEL</items>
+</information>

@@ -1,0 +1,53 @@
+<%@ Page Language="VB" Debug="true" %>
+<%@ Import Namespace="AspMap"%>
+<%@ Import Namespace="ADODB" %>
+
+<%
+  dim objConn
+  dim strConn
+  dim sqlSp
+  dim sqlRs
+  dim strError
+  dim strErrorColor
+  dim strURL
+  
+  dim intSiteID = request.form("ddSite")
+  dim intRuleID = request.form("ddRule")
+  dim intOldRuleID = request.form("txtOldRuleID")
+  dim strOldSIMNo = request.form("txtOldSIMNo")
+
+  dim strName = request.form("txtName")
+  dim strPost = request.form("txtPost")
+  dim strSIMNo = request.form("txtSIMNo")
+  dim intPriority = request.form("txtPriority")
+  
+  strConn = ConfigurationSettings.AppSettings("DSNPG")
+  objConn = new ADODB.Connection()
+  sqlRs = new ADODB.Recordset()
+
+  objConn.open (strConn)
+ 
+  sqlSp = "update telemetry_dispatch_list_table set ruleid='" & intRuleID & "', simno='" & strSIMNo & _
+          "', priority=" & intPriority & ", name='" & strName & "', post='" & strPost & _
+          "' where ruleid='" & intOldRuleID & "' and simno='" & strOldSIMNo & "'"
+
+  objConn.Execute (sqlSp)
+  strError = "Dispatch to : " & strName & " is added successfully !"
+  strErrorColor = "Green"
+  
+  objConn.close
+  objConn = Nothing
+
+  strURL="../Dispatch.aspx"
+%>
+<html>
+<head><title>.</title></head>
+<body>
+<form name="frmUpdateDispatch" method="post" action="<%=strURL%>">
+  <input type="hidden" value="<%=intSiteID%>" name="ddSite">
+</form>
+</body>
+</html>
+<script language="javascript">
+  document.forms[0].submit();
+</script>

@@ -1,0 +1,251 @@
+BODY { 
+  background: white url("images/homebg.gif");
+  background-attachment: fixed;
+  background-repeat: repeat-x;
+  background-position: top left;
+  SCROLLBAR-FACE-COLOR: #ffffff;
+  SCROLLBAR-HIGHLIGHT-COLOR: #ffffff;
+  SCROLLBAR-SHADOW-COLOR: #CBD6E4;
+  SCROLLBAR-3DLIGHT-COLOR: #CBD6E4;
+  SCROLLBAR-ARROW-COLOR: #CBD6E4;
+  SCROLLBAR-TRACK-COLOR: #ffffff;
+  SCROLLBAR-DARKSHADOW-COLOR: #ffffff;
+}
+
+a { text-decoration: none; color:white}
+a:hover { text-decoration: none; color:black}
+a#pic { text-decoration: none; color:white}
+a#indicator { text-decoration: none; color:lime}
+
+.drag{
+position:relative;
+cursor:pointer;
+z-index: 1;
+}
+
+sub{font-size:10px;font-family:verdana}
+span{font-size:12px;font-family:verdana}
+td{font-family:verdana;font-size:11px}
+.rtutd{font-size:12px;font-family:verdana;color:lightblue}
+
+.labeling {width:60px;font-family:verdana;font-size:13px;font-weight:bolder;color:black;text-align:right;cursor:default}
+.labeling_white {width:100px;font-family:verdana;font-size:12px;font-weight:bolder;color:white;text-align:left;cursor:default}
+.no_white {width:15px;height:15px;font-family:verdana;font-size:11px;font-weight:bolder;color:white;text-align:center;cursor:default}
+.mini_white {width:110px;font-family:verdana;font-size:8px;color:white;text-align:left}
+.indicator {width:110px;background:transparent;font-family:verdana;font-size:11px;font-weight:bolder;color:lime;text-align:left}
+.black_indicator {width:110px;background:transparent;font-family:verdana;font-size:13px;font-weight:bolder;color:black;text-align:left}
+.green_indicator {width:110px;background:transparent;font-family:verdana;font-size:13px;font-weight:bolder;color:lime;text-align:left}
+.red_indicator {width:110px;background:transparent;font-family:verdana;font-size:13px;font-weight:bolder;color:red;text-align:left}
+.orange_indicator {width:110px;background:transparent;font-family:verdana;font-size:13px;font-weight:bolder;color:orange;text-align:left}
+.yellow_indicator {width:110px;background:transparent;font-family:verdana;font-size:13px;font-weight:bolder;color:yellow;text-align:left}
+
+.indicator_small {background:transparent;font-family:verdana;font-size:9px;color:lime;text-align:left;overflow:visible}
+.red_indicator_small {background:transparent;font-family:verdana;font-size:9px;color:red;text-align:left;overflow:visible}
+.yellow_indicator_small {background:transparent;font-family:verdana;font-size:9px;color:yellow;text-align:left;overflow:visible}
+.indicator_onlight {background:transparent;font-family:verdana;font-size:11px;font-weight:bolder;color:black;text-align:left;overflow:visible}
+.indicator_small_onlight {background:transparent;font-family:verdana;font-size:9px;color:black;text-align:left;overflow:visible}
+.some{font-family:verdana;font-size:13px;color:lightblue}
+
+.rtu_island {width:210px;height:108px;background-image:url(imej/box.png);background-repeat:no-repeat}
+.panel{width:340px;height:141px;background:white;border-width:3px;border-style:double;border-color:darkslateblue;filter:alpha(opacity=75);-moz-opacity:.75;opacity:.75;}
+.panel_title{background:transparent;font-family:verdana;font-size:10px;font-weight:bolder;color:skyblue;text-align:right}
+.tag {font-family:verdana;font-size:10px;font-style:italic;font-weight:bolder;color:white;text-align:right;cursor:default}
+.labelhead {font-family:verdana;font-size:11px;font-style:italic;font-weight:bolder;color:yellow;text-align:right;cursor:default}
+.labels {width:60px;font-family:verdana;font-size:10px;font-weight:bolder;color:darkslateblue;text-align:right;cursor:default}
+.ok {background:transparent;font-family:verdana;font-size:10px;font-weight:bolder;color:dodgerblue;text-align:right}
+.fail {background:transparent;font-family:verdana;font-size:10px;font-weight:bolder;color:red;text-align:right}
+.pointer {cursor:pointer}
+
+.waterlevel {position:absolute;bottom:0px;background-color:#00ced1;z-index:2;filter:alpha(opacity=75);-moz-opacity:.75;opacity:.75;}
+.overflowlevel {position:absolute;bottom:0px;background-color:red;z-index:2;filter:alpha(opacity=75);-moz-opacity:.75;opacity:.75;}
+
+div#main_menu{position:absolute;width:60%;height:150px;background:transparent;bottom:0px;right:5px}
+div#header {position:absolute;width:450px;z-index:3;left:0px;top:0px;font-size:24px;font-family:verdana;font-weight:bold;color:white;}
+div#trends {position:absolute;width:1010px;height:80%;top:33px;left:5px;;z-index:1;border-width:1px;border-style:solid;border-color:#CBD6E4;text-align:left;visibility:visible;overflow:auto;}
+div#footer {position:absolute;width:450px;left:210px;top:800px;z-index:1;text-align:right}
+div#copyright {position:absolute;width:450px;bottom:3px;right:5px;text-align:right;color:#5373A2;font-family:Verdana;font-size:7pt}
+div#logo {position:absolute;top:449px;left:540px;background-color:white;z-index:2}
+div#timestamp {position:absolute;z-index:3;left:15px;top:39px;font-size:12px;font-family:verdana;color:white}
+div#poll {font-family:verdana;font-size:13px;font-weight:bolder;color:blue;text-align:right}
+div#legend{background:#1e1e5d;border-width:3px;border-style:solid;border-color:#1e1e5d}
+
+div#beta_logo{
+	z-index:11;
+	position:absolute;
+	width:241px;
+	height:142px;
+	bottom:0px;
+	right:0px;
+	background:transparent;
+	background-image:url(images/beta2.png);
+	background-repeat:no-repeat;	
+	filter:alpha(opacity=35);-moz-opacity:.35;opacity:.35;
+	}
+
+.inputStyle
+{
+	color: #0B3D62;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CBD6E4;
+}
+
+#xsystem_display {z-index:10;background: transparent; margin:1em;position:absolute;top:30px;left:5px;width:215px;visibility:hidden;filter:alpha(opacity=55);-moz-opacity:.55;opacity:.55;}
+#xsystem_display_title {text-align:right;font-family:arial;font-size:15px;color:#000000;}
+#xsystem_display_content {text-align:right;font-family:arial;font-size:15px;color:#000000;}
+
+#xloading {z-index:10;background: transparent; margin:1em;position:absolute;bottom:15px;right:15px;width:150px;visibility:hidden;filter:alpha(opacity=90);-moz-opacity:.90;opacity:.90;}
+#xlogo {z-index:10;background: transparent; margin:1em;position:absolute;bottom:8px;right:8px;width:215px;visibility:hidden;filter:alpha(opacity=55);-moz-opacity:.55;opacity:.55;}
+
+.zsnazzy {width:80%;}
+.xsnazzy h1, .zsnazzy h1 {margin:0; font-family:verdana,arial;font-size:8pt; padding:0 10px 5px 10px; border-bottom:1px solid #444;text-align:left}
+.xsnazzy p, .zsnazzy p { margin:0; padding:5px 10px; font-size:10px;}
+.xsnazzy {background: white; width:240px; float:left; margin:0 3px;}
+
+.xtop, .xbottom {display:block; background:transparent; font-size:1px;}
+.xb1, .xb2, .xb3, .xb4 {display:block; overflow:hidden;}
+.xb1, .xb2, .xb3 {height:1px;}
+.xb2, .xb3, .xb4 {background:#fff; border-left:1px solid #444; border-right:1px solid #444;}
+.xb1 {margin:0 5px; background:#444;}
+.xb2 {margin:0 3px; border-width:0 2px;}
+.xb3 {margin:0 2px;}
+.xb4 {height:2px; margin:0 1px;}
+.xboxcontent {display:block; background:#fff; border:0 solid #444; border-width:0 1px; height:auto;}
+.xboxcontent2 {display:block; background:#fff; border:0 solid #08c; border-width:0 1px;text-align:center;}
+.xboxcontent2.title{text-align: center;}
+* html .xboxcontent {height:1px;}
+
+.color_a {background:#c9ba65; color:#fff;}
+.color_b {background:#d4d8bd; color:#000;}
+.color_c {background:#758279; color:#fff;}
+.color_d {background:#b2ab9b; color:#000;}
+.color_x {background:#fff; color:#000;}
+.color_f {background: url(../chrometheme/chromebg2-over.gif) center center repeat-x; color:#000;}
+
+#xisland{background:#1e1e5d;border-width:3px;border-style:solid;border-color:#1e1e5d;width:215px;height:43px}
+div#windoze {position:absolute;width:800px;height:500px;top:40px;left:180px;background-color:white;z-index:3;border-width:1px;border-style:solid;border-color:#5F7AFC;text-align:center;visibility:hidden}
+div#dropped_windoze {position:absolute;width:800px;height:500px;top:47px;left:187px;background-image: url(imej/75black.png);z-index:2;visibility:hidden;filter:alpha(opacity=40);-moz-opacity:.40;opacity:.40;}
+div#inner_win {position:absolute;width:785px;height:485px;top:11px;left:9px;background-color:transparent;text-align:right;font-family:arial;font-size:15px;color:#000000;border-width:0px;border-style:solid;border-color:#5F7AFC;}
+div#x_close {position:absolute;width:10px;height:20px;top:-3px;right:2px;background-color:transparent;text-align:right;font-family:arial;font-size:15px;color:#000000;cursor:pointer}
+
+/* ######### Chrome Menu Style Group #########  */
+
+.chromestyle{
+position:absolute;
+top:5px;
+right:5px;
+width: 900px;
+font-weight: bold;
+}
+
+.chromestyle:after{ /*Add margin between menu and rest of content in Firefox*/
+content: "."; 
+display: block; 
+height: 0; 
+clear: both; 
+visibility: hidden;
+}
+
+.chromestyle ul{
+border: 1px solid #BBB;
+width: 100%;
+background: url(chrometheme/chromebg2.gif) center center repeat-x; /*THEME CHANGE HERE*/
+padding: 4px 0;
+margin: 0;
+text-align: right; /*set value to "left", "center", or "right"*/
+}
+
+.chromestyle ul li{
+display: inline;
+font-size: 8pt;
+font-family: Verdana;
+}
+
+.chromestyle ul li a{
+color: #494949;
+padding: 4px 7px;
+margin: 0;
+font-size: 8pt;
+font-family: Verdana;
+text-decoration: none;
+border-right: 1px solid #B5E2FE; /*THEME CHANGE HERE*/
+}
+
+.chromestyle ul li a:hover{
+background: url(chrometheme/chromebg2-over.gif) center center repeat-x; /*THEME CHANGE HERE*/
+}
+
+.chromestyle ul li a[rel]:after{ /*HTML to indicate drop down link*/
+/*content: " v";*/
+content: " " url(images/white.gif); /*uncomment this line to use an image instead*/
+}
+
+
+/* ######### Style for Drop Down Menu ######### */
+
+.dropmenudiv{
+position:absolute;
+top: 0;
+border: 1px solid #B5E2FE; /*THEME CHANGE HERE*/
+border-bottom-width: 0;
+font:normal 12px Verdana;
+line-height:18px;
+z-index:100;
+background-color: white;
+width: 200px;
+visibility: hidden;
+filter: progid:DXImageTransform.Microsoft.Shadow(color=#CACACA,direction=135,strength=4); /*Add Shadow in IE. Remove if desired*/
+}
+
+
+.dropmenudiv a{
+width: 100%;
+display: block;
+text-indent: 3px;
+border-bottom: 1px solid #B5E2FE; /*THEME CHANGE HERE*/
+padding: 2px 0;
+text-decoration: none;
+font-size: 8pt;
+font-family: Verdana;
+font-weight: bold;
+color: black;
+}
+
+.dropmenudiv a:hover{ /*THEME CHANGE HERE*/
+background-color: #EBF7FF;
+}
+
+
+/* ######### Alert Box Style Group #########  */
+.adisplay_island {position:absolute;bottom:3px;left:5px;width:555px;font-family:verdana;font-size:8pt;font-weight:bold}
+.adisplay_island.adisplay_title {position:absolute;bottom:0px;left:5px;color:#000000;}
+.adisplay_island.adisplay_lines {position:absolute;bottom:0px;left:52px;color:#DC143C;}
+
+/* ######### Selection Start Button #########  */
+.start_button{
+position:absolute;
+top:5px;
+right:5px;
+width: 900px;
+font-weight: bold;
+background: url(chrometheme/chromebg2.gif) center center repeat-x;
+}
+.start_button:hover{background: url(chrometheme/chromebg2-over.gif) center center repeat-x;}
+.start_button:focus{background: url(chrometheme/chromebg2_flip.gif) center center repeat-x;}
+/* ######### Site Menu Style Group #########  */
+.side_island {z-index:10;position:absolute;top:80px;left:-333px;width:350px;height:500px;background: white url("images/stripes.png");font-family:verdana;font-weight:bold;}
+.side_sdw {z-index:3;position:absolute;top:90px;left:-333px;width:360px;height:500px;background-color: black;filter:alpha(opacity=20);-moz-opacity:.2;opacity:.2;}
+.side_island.side_title {position:absolute;top:0px;width:283px;height:20px;background-color:transparent;color:white;;font-size:11pt;padding:3px 5px 3px 5px;}
+.side_island.side_content {position:absolute;top:21px;left:0px;width:333px;height:230px;background-color:transparent;display:inline;}
+.side_island.side_list {position:absolute;top:257px;left:7px;width:325px;height:210px;background-color:transparent;color:#fff;text-align:center;overflow:auto;}
+.side_island.side_list a{text-decoration: none; color:#4682B4}
+.side_island.side_list a:hover{text-decoration: none; color:#5555DD}
+.side_island.side_list td{color:#fff}
+.side_island.side_search {position:absolute;width:100%;bottom:0px;background-color:blue;color:#fff;}
+.side_island.side_c {position:absolute;right:0px;background-color:DarkSlateGray;height:100%;width:7px;color:#fff;cursor:pointer;writing-mode: tb-rl;filter:alpha(opacity=50);-moz-opacity:.5;opacity:.5;}
+.side_island.side_c_o {position:absolute;right:0px;background-color:DarkSlateGray;height:100%;width:10px;color:#fff;cursor:pointer;writing-mode: tb-rl;filter:alpha(opacity=80);-moz-opacity:.8;opacity:.8;}
+
+.xflow a div {display:none}
+.xflow a:hover div {display:block}

@@ -1,0 +1,41 @@
+
+a#pic { text-decoration: none; color:white}
+
+.alert {position:absolute; top:0px; left:0px;width:10px;height:10px;background-image: url(../images/point_alert.gif);background-repeat: no-repeat;background-position: top left;cursor:pointer}
+.normal {position:absolute; top:0px; left:0px;width:10px;height:10px;background-image: url(../images/point_norm.gif);background-repeat: no-repeat;background-position: top left;cursor:pointer}
+
+.labeling1 {width:150px;font-family:verdana;font-size:13px;font-weight:bold;color:lightgoldenrodyellow;overflow:visible;text-align:center}
+.labeling2 {width:150px;font-family:verdana;font-size:10px;font-weight:bold;color:firebrick;overflow:visible;text-align:center}
+.labeling3 {width:150px;font-family:verdana;font-size:13px;font-style:italic;font-weight:bolder;color:darkslateblue;overflow:visible;text-align:center;cursor:pointer}
+.indicator {background:transparent;font-family:verdana;font-size:13px;font-weight:bolder;color:lime;text-align:right}
+
+div#header {position:absolute;z-index:3;left:13px;top:10px;font-size:24px;font-family:verdana;font-weight:bolder;color:white}
+div#footer {position:absolute;left:600px;top:520px;color:#5373a2;font-family:Verdana;font-size:10px}
+div#reservoir {font-family:verdana;font-size:14px;font-weight:bolder;color:white;text-align:center}
+div#suction {font-family:verdana;font-size:14px;font-weight:bolder;color:white;text-align:center}
+div#logo {position:absolute;top:449px;left:540px;background-color:white;z-index:2}
+
+.outer .dk {background:#DAA520;}
+.tableone {width:380px; border-collapse:collapse; margin:0 auto;}
+.tabletwo {width:350px; border-collapse:collapse;}
+
+th {font-family:verdana;font-size:12px;font-weight:light;color:lightgoldenrodyellow}
+.th1 {width:50px;}
+.th2 {width:300px;}
+.th3 {width:99px;}
+
+td {font-family:verdana;font-size:10px;font-weight:light;color:lightgoldenrodyellow;text-align:left}
+.td1 {width:50px;}
+.td2 {width:300px;}
+.td3 {width:99px;}
+
+.tableone {background:#697210; border:1px solid #fff; color:#fff;}
+.tableone td {border:1px solid #fff; color:#fff;}
+.tableone tbody {background:#ceca38; color:#000;}
+.tableone caption {background:transparent; color:#697210;font-family:verdana; font-size:1.2em; margin:0 auto;}
+.tabletwo td {background:#eee; color:#000;}
+.tableone th, .tabletwo th {text-align:left;}
+.tabletwo tr.dk td {background:#ddd; color:#000;}
+
+.innerb {height:45em; overflow:auto;}
+

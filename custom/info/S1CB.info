@@ -1,0 +1,12 @@
+<?xml version="1.0" ?> 
+<information siteid="S1CB" sitename="rimbunan melati, gombak" mimictype="bph-type-a-3">
+  <items name="TWL1" desc="Suction Tank T.W.L." unit="m">56.70</items>
+  <items name="BWL1" desc="Suction Tank B.W.L." unit="m">52.00</items> 
+  <items name="C1" desc="Suction Tank Capacity" unit="m3">1200</items> 
+  <items name="PIPE1" desc="Inlet Pipe Size" unit="mm">450</items>
+  <items name="PIPE2" desc="Pumping Pipe Size" unit="mm">400</items>
+  <items name="PIPE3" desc="Falling (out)" unit="mm">450</items> 
+  <items name="TWL2" desc="Reservoir Tank T.W.L." unit="m">82.62</items> 
+  <items name="BWL2" desc="Reservoir Tank B.W.L." unit="m">75.00</items> 
+  <items name="C2" desc="Reservoir Tank Capacity" unit="m3">2300</items>
+</information>

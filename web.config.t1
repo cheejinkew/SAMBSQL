@@ -1,0 +1,19 @@
+<configuration>
+  <appSettings>
+    <add key="SAJconnection" value="Server=192.168.1.107;Database=saj;User ID=sa;Password=saj123456789;MultipleActiveResultSets=True;" />
+    <add key="DSN" value="DSN=testmap;UID=testmap;PWD=testmap;" />
+    <add key="DSNPG" value="DSN=sambsql;UID=sa;PWD=saj123456789;" />
+  </appSettings>
+  <system.web>
+    <customErrors mode="Off"/>
+    <httpHandlers>
+      <add verb="GET" path="CaptchaImage.aspx" type="WebControlCaptcha.CaptchaImageHandler, WebControlCaptcha"/>
+    </httpHandlers>
+    <compilation debug="true">
+      <assemblies>
+        <add assembly="ADODB, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+        <add assembly="System.Management, Version=2.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+      </assemblies>
+    </compilation>
+  </system.web>
+</configuration>

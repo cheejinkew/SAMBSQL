@@ -1,0 +1,506 @@
+<%@ Page Language="VB" Debug="true" %>
+<!--#include file="kont_id.aspx"-->
+<%@ Import Namespace="ADODB" %>
+<%
+   dim objConn
+   dim sqlRs
+   dim sqlRs1
+   dim sqlRs2
+   dim sqlRs3
+   dim sqlSp
+   dim strConn
+   dim strDateTime
+   dim intAlarmCount
+
+   dim strSelectedReport = request.form("ddReport")
+   dim strSelectedDistrict=request.form("ddDistrict")
+     dim strSelectedAlertType = request.form("ddAlert")
+      
+   dim strBeginDate = request.form("txtBeginDate")
+   dim strBeginHour= request.form("ddBeginHour")
+   dim strBeginMin = request.form("ddBeginMinute")
+   
+   dim strEndDate = request.form("txtEndDate")
+   dim strEndHour = request.form("ddEndHour")
+   dim strEndMin = request.form("ddEndMinute")
+   
+   dim i
+   dim strControlDistrict
+
+   dim arryControlDistrict = split(request.cookies("Telemetry")("ControlDistrict"), ",")
+   if arryControlDistrict.length() > 1 then
+     for i = 0 to (arryControlDistrict.length() - 1)
+       if i <> (arryControlDistrict.length() - 1)
+         strControlDistrict = strControlDistrict & "'" & trim(arryControlDistrict(i)) & "', "
+       else
+         strControlDistrict = strControlDistrict & "'" & trim(arryControlDistrict(i)) & "'"
+       end if
+     next i
+   else
+     strControlDistrict = strControlDistrict & "'" & arryControlDistrict(0) & "'"
+   end if
+   
+   if strBeginDate ="" then
+     strBeginDate = Now().ToString("yyyy/MM/dd")
+   end if
+ 
+   if strEndDate ="" then
+     strEndDate = Now().ToString("yyyy/MM/dd")
+   end if
+    
+   
+   if strSelectedDistrict="" then
+     strSelectedDistrict ="0"
+   end if
+
+   if strSelectedAlertType="" then
+     strSelectedAlertType ="0"
+   end if
+
+  'dim strBeginHour1= "06"
+  ' dim strBeginMin1 = "59"
+   'dim strEndHour1 = "07"
+   'dim strEndMin1 = "03"
+
+
+
+  ' dim strBeginHour2= "14"
+  ' dim strBeginMin2 = "59"
+  ' dim strEndHour2 = "15"
+   'dim strEndMin2 = "03"
+
+
+  ' dim strBeginHour3= "20"
+  ' dim strBeginMin3 = "59"
+  ' dim strEndHour3 = "21"
+  ' dim strEndMin3 = "03"
+   
+ dim strBeginHour1= "00"
+   dim strBeginMin1 = "00"
+   dim strEndHour1 = "07"
+   dim strEndMin1 = "59"
+
+   dim strBeginHour2= "08"
+   dim strBeginMin2 = "00"
+   dim strEndHour2 = "15"
+   dim strEndMin2 = "59"
+
+
+   dim strBeginHour3= "16"
+   dim strBeginMin3 = "00"
+   dim strEndHour3 = "23"
+   dim strEndMin3 = "59"
+
+  
+
+  dim strBeginDateTime1 = strBeginDate & " " & strBeginHour1 & ":" & strBeginMin1 & ":00"   
+   dim strEndDateTime1 = strBeginDate & " " & strEndHour1 & ":" & strEndMin1 & ":59"
+
+dim strBeginDateTime2 = strBeginDate & " " & strBeginHour2 & ":" & strBeginMin2 & ":00"   
+   dim strEndDateTime2 = strBeginDate & " " & strEndHour2 & ":" & strEndMin2 & ":59"  
+
+dim strBeginDateTime3 = strBeginDate & " " & strBeginHour3 & ":" & strBeginMin3 & ":00"   
+  dim strEndDateTime3 = strBeginDate & " " & strEndHour3 & ":" & strEndMin3 & ":59" 
+   
+   Dim mon As String
+        Dim yr 
+        Dim day 
+        Dim datn As String
+        mon = System.DateTime.Parse(strBeginDate).ToString("MMMM")
+        yr = System.DateTime.Parse(strBeginDate).Year
+        day = System.DateTime.Parse(strBeginDate).Day
+        datn = day & " " & mon & " " & yr
+
+   strConn = ConfigurationSettings.AppSettings("DSNPG")
+   objConn = new ADODB.Connection()
+   sqlRs = new ADODB.Recordset()
+   sqlRs1 = new ADODB.Recordset() 
+    sqlRs2 = new ADODB.Recordset()
+     sqlRs3 = new ADODB.Recordset()
+    
+   
+%>
+
+<html>
+<head>
+<style>
+
+.bodytxt 
+  {
+  font-weight: normal;
+  font-size: 11px;
+  color: #333333;
+  line-height: normal;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  }
+
+ a {text-decoration: none;} 
+.FormDropdown 
+  {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color:#5F7AFC;
+  width: 180px;
+  border: 1 solid #CBD6E4;
+  }
+.FormDropdown1
+  {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color:#5F7AFC;
+  width: 295px;
+  border: 1 solid #CBD6E4;
+  }
+.FormDropdown2 
+  {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color:#5F7AFC;
+  width: 50px;
+  border: 1 solid #CBD6E4;
+  }
+
+</style>
+
+</head>
+<body bgcolor="#FFFFFF">
+<script language="JavaScript" src="TWCalendar.js"></script>
+       
+<form name="frmReport" action="DispatchReport.aspx" method="POST">
+<script language="javascript">DrawCalendarLayout();</script>
+
+<div align="center">
+<br>
+<p ><img border="0" src="images/DispatchReport.jpg">
+<br>
+<div align="center">
+  <center>
+ <table border="0" cellpadding="0" cellspacing="0" width="70%">
+    <tr>
+      <td width="100%">
+        <div align="center">
+          <table border="0" cellspacing="1" width="100%">
+<tr>
+	<td width="4%"></td>
+	<td width="16%"><font face="Verdana" size="1" color="#5F7AFC"><b>District</b></font></td>
+	<td width="3%"><font face="Verdana" size="1" color="#5F7AFC"><b>:</b></font></td>	
+ 	
+          
+                   <td  style="width: 25%"><select size="1" name="ddDistrict" class="FormDropdown" onchange="javascript:gotoSubmit()" >
+                  <option value="0">- Select District -</option>
+
+                 <%
+                    dim strDistrict
+                   
+                     objConn = new ADODB.Connection()
+                    objConn.open(strConn)
+                    
+                    if arryControlDistrict(0) <> "ALL" then
+                      sqlRs.Open("select distinct sitedistrict from telemetry_site_list_table " & _
+                                 " where sitedistrict in (" & strControlDistrict & ") order by sitedistrict", objConn)
+                    else
+                      sqlRs.Open("select distinct sitedistrict from telemetry_site_list_table order by sitedistrict", objConn)
+                    end if
+                    
+                    do while not sqlRs.EOF
+                      strDistrict = sqlRs("sitedistrict").value 
+                     
+                  %>
+                  <option value="<%=strDistrict%>"><%=strDistrict%></option>
+                  <%
+
+                      sqlRs.movenext
+                    Loop
+                
+                    sqlRs.close()
+                    objConn.close()
+                    objConn = nothing
+                  %>
+                  
+                </select>
+              </td>
+<td></td>
+            </tr>
+           
+            <tr>
+              <td width="4%"></td>
+              <td width="16%"><font face="Verdana" size="1" color="#5F7AFC"><b>Begin Date</b></font></td>
+              <td width="3%"><font face="Verdana" size="1" color="#5F7AFC"><b>:</b></font></td>
+              <td width="40%"><font class="bodytxt">
+               <input type="text" name="txtBeginDate" size="12" style="border: 1 solid #5F7AFC; font-family: Verdana; font-size: 10pt; color: #3952F9; height: 20" 
+               value="<%=strBeginDate%>" readonly>&nbsp; </font>
+                 <a href="javascript:ShowCalendar('txtBeginDate', 190, 243);">
+                   <img border="1" src="images/Calendar.jpg" width="19" height="14">
+                   &nbsp;
+                 </a>
+                &nbsp;
+                                 
+              </td>
+   <td  align="left">                
+                <a href="javascript:gotoSubmit()">
+                  <img border="0" src="images/Submit_s.jpg" align="absbottom">
+                </a>&nbsp;&nbsp;&nbsp;
+                
+                <a href="javascript:goCreateExcel()">
+                  <img border="0" src="images/SaveExcel.jpg" align="absbottom">
+                </a>
+               
+              </td>
+            </tr>
+     
+            <td>&nbsp;
+            </td>
+            </center>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+<div align="center" id="divWait" style="font-family:Verdana; font-size:8pt; color:red;">&nbsp;</div>
+<!-*******************************************************************************************************
+   DISPATCH REPORT GENERATION style="display:none"
+  *******************************************************************************************************!>
+
+<div id="print"align="right">
+
+<table cellspacing="0" width="100%" id="ds" style="display:none"> 
+<center>
+<tr>
+<td align="center" ><img border="0" src="images/DispatchReport.jpg"></td>
+</tr>
+<tr><td></td>
+
+<tr><td align="right" width="90%">Date :<%=datn%></td></tr>
+<tr height="10%"><td height="10%"><td></tr>
+</table>
+
+
+  <table border="1" cellspacing="0" width="80%">
+ <center>
+ <tr><td></td></tr>
+    <tr style="background-color: #465AE8; color: #FFFFFF">
+      <td align="center" height="20" width="40%"><font face="Verdana" size="1"><b>Site Name</b></font></td>
+      <td align="center" height="20" width="20%"><font face="Verdana" size="1"><b>7 am</b></font></td>
+      <td align="center" height="20" width="20%"><font face="Verdana" size="1"><b>3 pm</b></font></td>
+      <td align="center" height="20" width="20%"><font face="Verdana" size="1"><b>9 pm</b></font></td>
+    </tr>
+
+     <%
+       dim intNum = 0
+       dim strEquip
+       dim intValue
+	dim intValue1
+	dim intValue2
+       dim strAlarmType
+       dim strSiteName
+        Dim strsql1,strsql2,strsql3 as string
+       objConn = new ADODB.Connection()
+       sqlRs = new ADODB.Recordset()
+       sqlRs1 = new ADODB.Recordset()
+       sqlRs2 = new ADODB.Recordset()
+       sqlRs3 = new ADODB.Recordset()
+       objConn.open(strConn)
+
+	sqlRs.Open("SELECT distinct sitename from telemetry_site_list_table where sitedistrict='" & strSelectedDistrict & "' and siteid NOT IN ("& strKontID &") and sitetype not in('AMR') order by sitename", objConn) 
+       
+          do while not sqlRs.EOF 
+
+	   strSiteName = sqlRs("sitename").value
+
+ 		'sqlRs3.Open("select sitename, max(value) AS v  from telemetry_dispatch_history_table where dtimestamp between ('" & StrBeginDateTime1 & "') and ('" & strEndDateTime1 & "')group by sitename", objConn)
+		'sqlRs1.Open("select sitename, max(value) AS v1 from telemetry_dispatch_history_table where dtimestamp between ('" & StrBeginDateTime2 & "') and ('" & strEndDateTime2 & "')group by sitename", objConn)
+		'sqlRs2.Open("select sitename, max(value) AS v2 from telemetry_dispatch_history_table where dtimestamp between ('" & StrBeginDateTime2 & "') and ('" & strEndDateTime2 & "')group by sitename", objConn)
+        strsql3="select  max(value) AS v  from telemetry_dispatch_history_table where dtimestamp between ('" & StrBeginDateTime1 & "') and ('" & strEndDateTime1 & "') and sitename='" & strSiteName & "' "
+        strsql1="select  max(value) AS v1 from telemetry_dispatch_history_table where dtimestamp between ('" & StrBeginDateTime2 & "') and ('" & strEndDateTime2 & "') and sitename='" & strSiteName & "' "
+        strsql2="select  max(value) AS v2 from telemetry_dispatch_history_table where dtimestamp between ('" & strBeginDateTime3 & "') and ('" & strEndDateTime3 & "') and sitename='" & strSiteName & "' "
+      ' response.write(strsql1 & "<br />" & strsql2 & "<br />" & strsql3)
+        sqlRs3.Open(strsql3, objConn)
+		sqlRs1.Open(strsql1, objConn)
+		sqlRs2.Open(strsql2, objConn)
+              
+           if  iSdbnULL(sqlRs3("v").value) THEN
+
+		intValue = "-"
+
+	    	ELSE
+
+  		intValue = sqlRs3("v").value & "m"
+		 
+	     END IF
+
+ 	   if  iSdbnULL(sqlRs1("v1").value) THEN
+
+		intValue1 ="-"
+	   	ELSE
+ 
+	   	IntValue1 = sqlRs1("v1").value & "m"
+	  
+           END IF
+
+
+ 	if  iSdbnULL(sqlRs2("v2").value) THEN
+
+		intValue2= "-"
+
+		ELSE
+
+	   	intValue2 = sqlRs2("v2").value & "m"
+	 END IF
+
+
+		'IntValue1 = sqlRs1("v1").value & "M"
+		'intValue2 = sqlRs2("v2").value & "M"
+
+	  
+            
+	sqlRs1.close()
+	sqlRs2.close()
+	sqlRs3.close()
+       
+           if intNum = 0 then
+             intNum = 1 
+
+     %>
+
+
+    <tr bgcolor="#FFFFFF">
+    <%
+           elseif intNum = 1 then
+             intNum = 0
+    %>
+
+    <tr bgcolor="#E7E8F8">
+    <%
+           end if
+    %>
+      
+      <td align="left" style="margin-left: 5"><font class="bodytxt"><%=strSiteName%></font></td>
+      <td align="center" style="margin-left: 5"><font class="bodytxt"><%=intValue%> </font></td>
+      <td align="center" style="margin-left: 5"><font class="bodytxt"><%=intValue1%> </font></td>
+      <td align="center" style="margin-left: 5"><font class="bodytxt"><%=intValue2%> </font></td>
+
+    </tr>
+
+    <%
+
+         sqlRs.movenext
+       Loop
+       
+      
+	sqlRs.close()
+       'end if
+       objConn.close()
+       sqlRs = nothing
+       objConn = nothing
+    %>  
+<tr> <td></td></tr>   
+  </table>
+</div>
+
+<div id="printbtn" ><input name=idPrint type=button value="Print the Report" onclick="btnprintfun();"></div>
+<p align="center">&nbsp;</p>
+<input type="hidden" name="txtSubmit" value="">
+<input type="hidden" name="txtdistrictname" value="">
+<p align="center" style="margin-bottom: 15">
+  <font size="1" face="Verdana" color="#5373A2">
+    Copyright © 2005 Gussmann Technologies Sdn Bhd. All rights reserved.
+  </font>
+</p>
+
+</form>
+<p>&nbsp;</p>
+
+</body>
+
+</html>
+
+<script language="javascript">
+  
+     var test;
+     document.forms(0).ddDistrict.value="<%=strSelectedDistrict%>";
+     
+  function gotoSubmit()
+  {
+    divWait.innerHTML = "<b>Loading, please wait...";
+    document.forms(0).submit();
+  }
+
+  frmTargetForm = "frmReport";
+  
+  function ShowCalendar(strTargetDateField, intLeft, intTop)
+  {
+    txtTargetDateField = strTargetDateField;
+    divTWCalendar.style.visibility = 'visible';
+    divTWCalendar.style.left = intLeft;
+    divTWCalendar.style.top = intTop;
+  }
+
+function goCreateExcel() 
+  {
+
+     var strSelectedDistrict = document.getElementById('ddDistrict').value;
+
+     var strBeginDate=document.getElementById('txtBeginDate').value;
+
+     var strURL="ExcelDispatchReport.aspx?strSelectedDistrict=" + strSelectedDistrict + "&strBeginDate="+ strBeginDate;
+     
+    //var url="ExcelDispatchReport.aspx?strSelectedDistrict=" + dist + "&strBeginDateTime1="+ strBeginDateTime1 + "&strBeginDateTime2="+ strBeginDateTime2 + "&strBeginDateTime3="+ strBeginDateTime3 ;	
+     
+    test = window.open(strURL, "Report",'height=10, width=10, Left=5000, Top=5000,status= no, resizable= yes, scrollbars=no, toolbar=no,location=no,menubar=no ');
+
+    setTimeout('CloseMe()',20000);
+
+
+  }
+function showElement (elementId) {
+var element;
+if (document.all)
+element = document.all[elementId];
+else if (document.getElementById)
+element = document.getElementById(elementId);
+if (element && element.style)
+element.style.display = '';
+}
+function hideElement (elementId) {
+var element;
+if (document.all)
+element = document.all[elementId];
+else if (document.getElementById)
+element = document.getElementById(elementId);
+if (element && element.style)
+element.style.display = 'none';
+}
+function btnprintfun()
+		{
+
+			var winvalue;
+			showElement('ds');
+			
+			winvalue=window.document.body.innerHTML;
+			window.document.body.innerHTML= document.getElementById("print").innerHTML;			
+			window.print();	
+			window.document.body.innerHTML=winvalue;
+			
+			hideElement('ds');
+
+			return false;
+			
+		}
+
+
+  
+  function CloseMe()
+  {
+    test.close();
+  }
+
+
+  var strSession = 'true';
+  if (strSession != "true")
+  {
+    top.location.href = "login.aspx";
+  }
+  
+</script>

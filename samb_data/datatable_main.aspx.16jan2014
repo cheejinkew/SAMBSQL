@@ -1,0 +1,228 @@
+<%@ Page Language="VB" Debug="true" %>
+
+<%@ Import Namespace="ADODB" %>
+<%
+if request.querystring("ekspot")="yes" then
+%>
+<!--#include file="save2excel.aspx"-->
+<%
+end if
+%>
+<!--#include file="report_head.aspx"-->
+<%
+
+dim objConn,strconn, strConn1
+dim sqlRs,sqlRs1
+dim data=0,nodata=0
+dim table = request.querystring("table")
+dim start_date = request.querystring("start")
+dim end_date
+dim time =request.querystring("time")
+dim min=request.querystring("Min")
+dim level_read, RF_read, cumRainfall, maya, tempoh
+dim total_rainfall
+dim remark
+dim i
+dim simLength
+dim dist as string=request.querystring("dist")
+Dim strConnection as string="DSN=sajsql;UID=sa;PWD=saj123456789;MARS Connection=True;"
+  ' strConn = ConfigurationSettings.AppSettings(strConnection)
+strConn=strConnection 
+    'strConn1 = ConfigurationSettings.AppSettings("DSNPG2")
+'strConn = "DSN=g1;UID=tmp;PWD=tmp;"
+objConn = new ADODB.Connection()
+sqlRs = new ADODB.Recordset()
+sqlRs1 = new ADODB.Recordset()
+makeHTMLHeader_Open()
+%>
+<!--#include file="report_style.inc"-->
+<%
+makeHTMLHeader_Close()
+response.write("<body>")
+
+time=time & ":" & min & ":00"
+
+
+dim k as integer=0
+
+
+dim text,x
+		
+tempoh = 8
+		
+		
+
+dim text1
+if dist="BPH" or dist="RESERVOIR" or dist="WTP" then
+
+ response.write("<center><h1><b>SAJ INCOMING DATA REPORT</b></h1><br/>" & vbcrlf)
+ text1 = "select distinct(sitetype) from telemetry_site_list_table where sitetype='" & dist & "'"
+  
+else
+ 
+response.write("<center><h1><b>SAJ INCOMING DATA REPORT</b></h1><b>District : <font color='blue' size=4>" & dist & "</font></b><br/>" & vbcrlf)
+text1 = "select distinct(sitetype) from telemetry_site_list_table where sitedistrict='" & dist & "'"
+end if
+objConn.open(strconn)
+	Response.write("<label  class='tdo'  style='cursor:pointer;' onclick='window.parent.Showdiv();'>")
+    Response.write("<font color='blue'><b>Contact Persons</b>(**click)</font></label>")	
+
+sqlRs1.Open(text1, objConn)
+   	
+
+
+do while not sqlRs1.EOF
+      
+    response.write("<table class=" & chr(34) & "tbl_1" & chr(34) & " align=" & chr(34) & "center" & chr(34) & ">")
+   
+    dim strdate=start_date & " " & time 
+	strdate=String.Format("{0:yyyy/MM/dd HH:mm:ss}",Date.Parse(strdate))
+	end_date = String.Format("{0:yyyy/MM/dd HH:mm:ss}",Date.Parse(strdate).AddMinutes(-55))
+        
+  	
+	response.write("<tr><td class='tdo'>")
+	response.write("<b>Site Type : <font color='blue' size='2'>" & sqlRs1("sitetype").value & "</font></b></td></tr>")
+	response.write("<tr><td class='tdc'><b>SIMno</b></td>")
+	
+If dist="BPH" Or dist="RESERVOIR" Or dist="WTP" Then
+text = "select siteid,sitename,sitedistrict from telemetry_site_list_table where sitetype='" & sqlRs1("sitetype").value & "'  order by siteid"
+response.write("<td class='tdc'><b>District</b></td>")
+else
+text = "select siteid,sitename from telemetry_site_list_table where sitedistrict='" & dist & "' and sitetype='" & sqlRs1("sitetype").value & "'  order by siteid"
+end if
+	
+	response.write("<td class='tdc'><b>SiteID</b></td><td class='tdc'><b>Site Name</b></td>")
+	response.write("<td class='tdc'><b>" & String.Format("{0:yyyy/MM/dd HH:mm}",Date.Parse(strdate)) & "</b></td>")
+	response.write("<td class='tdc'><b> Latest Data </b></td>")
+	response.write("<td class='tdc'><b>Remarks</b></td></tr>")
+   
+    sqlRs.Open(text, objConn)
+	do until sqlRs.EOF
+	        simLength=get_SimNo(strConn,sqlRs("siteid").value)
+	   if simLength.length > 9 then    
+	        response.write("<tr><td class='tdc'>" & simLength & "</td>")
+	        if dist="BPH" or dist="RESERVOIR" or dist="WTP"  then
+	            response.write("<td class='tdc'>" & sqlRs("sitedistrict").value & "</td>")
+	        end if
+    	    response.write("<td class='tdc'>" & sqlRs("siteid").value & "</td><td class='tdc'>" & GetSiteName(strConn,sqlRs("siteid").value) & "</td>")
+    	    dim clevel =Get_readings_latest(strConn,sqlRs("siteid").value,2)
+	        level_read = Get_readings_per_hour(strConn,sqlRs("siteid").value,2,String.Format("{0:yyyy-MM-dd HH:mm:ss}",Date.Parse(strdate)),sqlRs1("sitetype").value)
+	        dim diff
+	         		
+		if Not level_read = "No" then
+		
+		    data=data+1
+		    level_read = "Yes"
+		    response.write("<td class='tdc' align='center'>" & level_read & "</td>")
+		    
+	    else
+	    
+		 nodata=nodata+1
+		 response.write("<td class='tdc' align='center'><font color='#ff3300'>" & level_read & "</font></td>")
+		 
+	    end if
+		
+        if clevel="-" then
+       
+		    response.write("<td class='tdc' align='center'><font color='#ff3300'>" & clevel & "</font></td>" & vbcrlf)
+		    response.write("<td class='tdc' align='center'><font color='#ff3300'>" & get_Remark(strConn,sqlRs("siteid").value) & "</font></td></tr>" & vbcrlf)       
+		
+        else
+		    if level_read="No"
+		 	     level_read=Get_Current_Time_Stamp(strConn,sqlRs("siteid").value,2,String.Format("{0:yyyy-MM-dd HH:mm:ss}",Date.Parse(clevel)),sqlRs1("sitetype").value)
+		         diff=DateDiff(DateInterval.Minute,Date.Parse(clevel),Date.Parse(level_read))
+	                if diff>=480 and diff<=2880 then
+	                        remark=	get_Remark(strConn,sqlRs("siteid").value)
+				                
+	                        response.write("<td class='tdc' align='center'><font color='#ff3300'>" & String.Format("{0:dd-MM-yyyy HH:mm:ss}",Date.Parse(clevel))&"</font></td>" & vbcrlf)
+		                    response.write("<td class='tdc' align='center'><font color='#ff3300'>" & get_Remark(strConn,sqlRs("siteid").value) & "</font></td></tr>" & vbcrlf)   
+		      
+		            else if diff>2880 then
+		                     remark=get_Remark(strConn,sqlRs("siteid").value)
+		                     if remark="No Remark" or remark="RTU Not Sent Data" then
+		                                 
+				                         remark=get_Remark(strConn,sqlRs("siteid").value)
+		                     end if
+				            response.write("<td class='tdc' align='center'><font color='#ff3300'>" & String.Format("{0:dd-MM-yyyy HH:mm:ss}",Date.Parse(clevel))&"</font></td>" & vbcrlf)
+		                    response.write("<td class='tdc' align='center'><font color='#ff3300'>" & remark & "</font></td></tr>" & vbcrlf)   
+		            else
+		    
+		                     remark=get_Remark(strConn,sqlRs("siteid").value)
+		                     if not remark="No Remark" then
+			                     set_SiteIdRemark(strConn,sqlRs("siteid").value,"No Remark")
+			                     remark=get_Remark(strConn,sqlRs("siteid").value)
+		                     end if
+		      
+		                    response.write("<td class='tdc' align='center'>" & String.Format("{0:dd-MM-yyyy HH:mm:ss}",Date.Parse(clevel))&"</td>" & vbcrlf)
+		                    response.write("<td class='tdc' align='center'>" & remark & "</td></tr>" & vbcrlf)
+		  
+	                 end if 
+		
+		
+		    else
+				remark=get_Remark(strConn,sqlRs("siteid").value)
+		        if not remark="No Remark" then
+			            set_SiteIdRemark(strConn,sqlRs("siteid").value,"No Remark")
+			            remark=get_Remark(strConn,sqlRs("siteid").value)
+		        end if
+		      
+		      response.write("<td class='tdc' align='center'>" & String.Format("{0:dd-MM-yyyy HH:mm:ss}",Date.Parse(clevel))&"</td>" & vbcrlf)
+		      response.write("<td class='tdc' align='center'>" & remark & "</td></tr>" & vbcrlf)
+		     
+		   end if 
+		
+		end if
+			end if	
+	    sqlRs.movenext()
+	loop
+	
+    sqlRs.Close()
+    response.write("</table><br/><br/>")
+	sqlRs1.MoveNext()
+loop
+%>
+<form id="frm" method="post" runat="server">
+    <asp:label id="lbl_error" runat="server" style="color: Red"></asp:label>
+    <table class="tdc">
+        <tr>
+            <td colspan="2">
+                <b><font color='blue' size='2'>COMMENT:</font></b></td>
+        </tr>
+        <tr>
+            <td class="tdo">
+                <div align="right">
+                    SIMno :
+                </div>
+            </td>
+            <td>
+                <input runat="server" id="txt_simno" type="text" name="SIMno" value=""></td>
+        </tr>
+        <tr>
+            <td class="tdo">
+                <div align="right">
+                    Comment :</div>
+            </td>
+            <td>
+                <input runat="server" id="txt_comment" type="text" name="Comment" value=""></td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td align="right">
+                <asp:button id="btn_Submit" runat="server" text="Update" onclick="btn_Submit_Click" />
+            </td>
+        </tr>
+    </table>
+</form>
+<%
+response.write("</center><br/><br/>")
+
+response.write("<div class='tdo'>Total Number of sites (Having Data):<font color='blue'><b>" & data & "</b></font></div>")
+response.write("<div class='tdo'>Total Number of sites (Not Having Data):<font color='blue'><b>" & nodata & "</b></font></div>")
+objConn.close()
+sqlRs = nothing
+objConn = nothing
+
+
+%>
+<!--#include file="report_foot.aspx"-->

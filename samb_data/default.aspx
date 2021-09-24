@@ -1,0 +1,1 @@
+<% Response.Redirect("datatable_selection.aspx", true) %>

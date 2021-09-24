@@ -1,0 +1,119 @@
+a#pic { text-decoration: none; color:white}
+a#indicator { text-decoration: none; color:lime}
+
+sub{font-size:10px;font-family:verdana}
+span{font-size:12px;font-family:verdana}
+
+.rtutd{font-size:12px;font-family:verdana;color:lightblue}
+
+.tab_panel0{background:white;cursor:pointer;width:168px;text-align:center;font-family:verdana;font-size:11px;font-weight:bolder;color:dimgrey}
+.tab_panel1{background:dimgrey;cursor:pointer;width:168px;text-align:center;font-family:verdana;font-size:11px;font-weight:bolder;color:white}
+
+.pump_run {width:14px;height:13px;background-image:url(../images/light/green_L.gif);background-repeat:no-repeat;cursor:default}
+.pump_stop {width:14px;height:13px;background-image:url(../images/light/red_L.gif);background-repeat:no-repeat;cursor:default}
+.pump_off {width:14px;height:13px;background-image:url(../images/light/yellow_L.gif);background-repeat:no-repeat;cursor:default}
+.hour_box{width:65px;height:15px;background-image:url(../images/box_hours.png);background-repeat:no-repeat;}
+.flow_box{width:178px;height:31px;background-image:url(../images/flowntotal.png);background-repeat:no-repeat;}
+.acc_box{width:94px;height:16px;background-image:url(../images/waterlevel.png);background-position:0px -30px;background-repeat:no-repeat;}
+.lvl_box{width:94px;height:16px;background-image:url(../images/waterlevel.png);background-position:0px -30px;background-repeat:no-repeat;}
+.black_box {width:61px;height:16px; font-family:verdana;font-size:11px;font-weight:bolder;color:lime;text-align:left;
+            background:transparent url(../images/black_bg.png) no-repeat 0px 0px;padding:2px;padding-left:10px;}
+            
+.labeling {width:60px;font-family:verdana;font-size:13px;font-weight:bolder;color:black;text-align:right;cursor:default}
+.labelingW {width:60px;font-family:verdana;font-size:10px;font-weight:bolder;color:white;text-align:left;cursor:default}
+.indicator {width:110px;background:transparent;font-family:verdana;font-size:11px;font-weight:bolder;color:lime;text-align:left}
+.indicator_small {background:transparent;font-family:verdana;font-size:9px;color:lime;text-align:left;overflow:visible}
+.red_indicator {width:110px;background:transparent;font-family:verdana;font-size:11px;font-weight:bolder;color:red;text-align:left}
+.red_indicator_small {background:transparent;font-family:verdana;font-size:9px;color:red;text-align:left;overflow:visible}
+.yellow_indicator_small {background:transparent;font-family:verdana;font-size:9px;color:yellow;text-align:left;overflow:visible}
+.indicator_onlight {background:transparent;font-family:verdana;font-size:11px;font-weight:bolder;color:black;text-align:left;overflow:visible}
+.indicator_small_onlight {background:transparent;font-family:verdana;font-size:9px;color:black;text-align:left;overflow:visible}
+.some{font-family:verdana;font-size:13px;color:lightblue}
+
+.rtu_island {width:210px;height:108px;background-image:url(../images/box_trans.gif);background-repeat:no-repeat}
+.panel{width:340px;height:141px;background:white;border-width:3px;border-style:double;border-color:darkslateblue;filter:alpha(opacity=75);-moz-opacity:.75;opacity:.75;}
+.panel_title{background:transparent;font-family:verdana;font-size:10px;font-weight:bolder;color:skyblue;text-align:right}
+.tag {font-family:verdana;font-size:10px;font-style:italic;font-weight:bolder;color:white;text-align:right;cursor:default}
+.labelhead {font-family:verdana;font-size:11px;font-style:italic;font-weight:bolder;color:yellow;text-align:right;cursor:default}
+.labels {width:60px;font-family:verdana;font-size:10px;font-weight:bolder;color:darkslateblue;text-align:right;cursor:default}
+.ok {background:transparent;font-family:verdana;font-size:10px;font-weight:bolder;color:dodgerblue;text-align:right}
+.fail {background:transparent;font-family:verdana;font-size:10px;font-weight:bolder;color:red;text-align:right}
+.pointer {cursor:pointer}
+
+.waterlevel {position:absolute;bottom:0px;background-color:#00ced1;z-index:3;filter:alpha(opacity=65);-moz-opacity:.65;opacity:.65;}
+.overflowlevel {position:absolute;bottom:0px;background-color:red;z-index:3;filter:alpha(opacity=65);-moz-opacity:.65;opacity:.65;}
+
+
+.jika{padding:10px}
+
+.up{position:absolute;z-index:2;width:25px;height:25px;background-image:url(imej/up.png);background-repeat:no-repeat;}
+.down{position:absolute;z-index:2;width:25px;height:25px;background-image:url(imej/down.png);background-repeat:no-repeat;}
+.left{position:absolute;z-index:2;width:25px;height:25px;background-image:url(imej/left.png);background-repeat:no-repeat;}
+.right{position:absolute;z-index:2;width:25px;height:25px;background-image:url(imej/right.png);background-repeat:no-repeat;}
+
+div#header {position:absolute;z-index:3;left:15px;top:5px;font-size:24px;font-family:verdana;font-weight:bold;color:white;}
+div#site_status {position:absolute;z-index:3;left:16px;top:33px;font-size:13px;font-family:verdana;color:white;}
+div#footer {position:absolute;left:3px;top:510px;z-index:1;text-align:right}
+div#reservoir {font-family:verdana;font-size:14px;font-weight:bolder;color:white;text-align:center}
+div#suction {font-family:verdana;font-size:14px;font-weight:bolder;color:white;text-align:center}
+div#logo {position:absolute;top:449px;left:540px;background-color:white;z-index:2}
+
+div#timestamp {position:absolute;z-index:3;left:15px;top:39px;font-size:12px;font-family:verdana;color:white}
+div#poll {font-family:verdana;font-size:13px;font-weight:bolder;color:blue;text-align:right}
+div#legend{background:#1e1e5d;border-width:3px;border-style:solid;border-color:#1e1e5d}
+
+div#hijab{z-index:9;position:absolute;top:0px;left:0px;width:100%;height:100%;background:#000000;filter:alpha(opacity=55);-moz-opacity:.55;opacity:.55;visibility:hidden;}
+.inputStyle
+{
+	color: #0B3D62;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CBD6E4;
+}
+.siteid_box {
+font-family: verdana;
+font-size: 11px;
+font-weight: bolder;
+color: #FFFF00;
+text-align: left;
+padding: 2px;
+padding-left: 10px;
+}
+
+#xlogo {z-index:10;background: transparent; margin:1em;position:absolute;top:430px;left:535px;width:215px}
+.xtop, .xbottom {display:block; background:transparent; font-size:1px;}
+.xb1, .xb2, .xb3, .xb4 {display:block; overflow:hidden;}
+.xb1, .xb2, .xb3 {height:1px;}
+.xb2, .xb3, .xb4 {background:#fff; border-left:1px solid #08c; border-right:1px solid #08c;}
+.xb1 {margin:0 5px; background:#08c;}
+.xb2 {margin:0 3px; border-width:0 2px;}
+.xb3 {margin:0 2px;}
+.xb4 {height:2px; margin:0 1px;}
+.xboxcontent {display:block; background:#fff; border:0 solid #08c; border-width:0 1px;}
+
+#xisland{background:#1e1e5d;border-width:3px;border-style:solid;border-color:#1e1e5d;width:215px;height:43px}
+#xstatus {z-index:10;background: transparent; margin:1em;position:absolute;top:0px;right:0px;width:280px;height:100px;visibility:hidden;}
+#poll {font:bold 14px verdana,sans-serif;left-margin:10px;padding:10px;}
+
+div#btn_1 {position:absolute;width:35px;height:21px;background-image:url(imej/poll_btn.gif);background-repeat:no-repeat;background-position:0px 0px;z-index:2}
+div#btn_1:hover {position:absolute;width:35px;height:21px;background-image:url(imej/poll_btn.gif);background-repeat:no-repeat;background-position:-36px 0px;z-index:2}
+div#btn_1:active {position:absolute;width:35px;height:21px;background-image:url(imej/poll_btn.gif);background-repeat:no-repeat;background-position:-72px 0px;z-index:2}
+div#sbtn_1:focus {position:absolute;width:26px;height:21px;background-image:url(imej/btn.gif);background-repeat:no-repeat;background-position:-76px 0px;z-index:2}
+
+
+.poll_btn_n {position:absolute;width:35px;height:21px;background-image:url(imej/poll_btn.gif);background-repeat:no-repeat;background-position:0px 0px;z-index:2;cursor:pointer}
+.poll_btn_o {position:absolute;width:35px;height:21px;background-image:url(imej/poll_btn.gif);background-repeat:no-repeat;background-position:-36px 0px;z-index:2;cursor:pointer}
+.poll_btn_d {position:absolute;width:35px;height:21px;background-image:url(imej/poll_btn.gif);background-repeat:no-repeat;background-position:-72px 0px;z-index:2;cursor:pointer}
+
+.xbox {z-index:10;background: transparent; margin:1em;position:absolute;width:280px;height:100px;visibility:hidden;}
+
+.xbox_butt{z-index:10;background: transparent; margin:1em;position:absolute;width:300px;visibility:hidden;}
+.xbox_butt .send_btn_n {position:absolute;top:5px;left:5px;width:35px;height:21px;background-image:url(imej/send_btn.gif);background-repeat:no-repeat;background-position:0px 0px;z-index:2;cursor:pointer}
+.xbox_butt .send_btn_o {position:absolute;top:5px;left:5px;width:35px;height:21px;background-image:url(imej/send_btn.gif);background-repeat:no-repeat;background-position:-36px 0px;z-index:2;cursor:pointer}
+.xbox_butt .send_btn_d {position:absolute;top:5px;left:5px;width:35px;height:21px;background-image:url(imej/send_btn.gif);background-repeat:no-repeat;background-position:-72px 0px;z-index:2;cursor:pointer}
+
+.xbox_butt .cancel_btn_n {position:absolute;top:5px;left:45px;width:35px;height:21px;background-image:url(imej/cancel_btn.gif);background-repeat:no-repeat;background-position:0px 0px;z-index:11;cursor:pointer}
+.xbox_butt .cancel_btn_o {position:absolute;top:5px;left:45px;width:35px;height:21px;background-image:url(imej/cancel_btn.gif);background-repeat:no-repeat;background-position:-36px 0px;z-index:11;cursor:pointer}
+.xbox_butt .cancel_btn_d {position:absolute;top:5px;left:45px;width:35px;height:21px;background-image:url(imej/cancel_btn.gif);background-repeat:no-repeat;background-position:-72px 0px;z-index:11;cursor:pointer}

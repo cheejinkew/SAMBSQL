@@ -1,0 +1,197 @@
+<?xml version="1.0" ?> 
+<mimic_map description="tank system category for SAMB">
+	  <site id="8501" system="pump" url="NONE" desc="done">BKT. SENANDONG B3</site> 
+	  <site id="8502" system="pump" url="NONE" desc="done">BKT. KOMING</site> 
+	  <site id="8503" system="gravity" url="NONE" desc="done">SELANDAR 2</site> 
+	  <site id="8504" system="gravity" url="NONE" desc="done">TANGKI AIR BTG MELAKA BARU</site> 
+	  <site id="8505" system="gravity" url="NONE" desc="done">KOLAM AIR JUS</site> 
+	  <site id="8506" system="pump" url="NONE" desc="done">KOLAM AIR GAPIS</site> 
+	  <site id="8507" system="pump" url="NONE" desc="done">KOLAM BKT BENDERA</site> 
+	  <site id="8508" system="pump" url="NONE" desc="done">KOLAM BKT BAHUDIN 1</site> 
+	  <site id="8509" system="pump" url="NONE" desc="done">KOLAM BKT BAHUDIN 2</site> 
+	  <site id="8510" system="gravity" url="NONE" desc="done">KOLAM BKT PERAH</site> 
+  
+	  <site id="8511" system="pump" url="NONE" desc="done">ANGKASA NURI</site>
+  <site id="8703" system="gravity" url="NONE" desc="done">ANGKASA NURI (SUCT)</site>
+  <site id="8757" system="pump" url="NONE" desc="done">RAMUAN CINA KECIL</site>
+  <site id="8756" system="gravity" url="NONE" desc="done">Sg. Siput Suction</site>
+  <site id="8783" system="gravity" url="NONE" desc="done">Suct Bukit Payung</site>
+  <site id="8793" system="gravity" url="NONE" desc="done">Terminal Pulau Sebang</site>
+  
+
+  <site id="8512" system="pump" url="NONE" desc="done">TAMAN TANJUNG MINYAK UTAMA</site> 
+	  <site id="8513" system="pump" url="NONE" desc="done">BUKIT SEBUKOR</site> 
+	  <site id="8514" system="pump" url="NONE" desc="done">ASAHAN</site> 
+	  <site id="8515" system="pump" url="NONE" desc="done">KOLAM TYT</site> 
+	  <site id="8516" system="gravity" url="NONE" desc="done">DUYONG LAMA</site> 
+	  <site id="8517" system="pump" url="NONE" desc="done">BUKIT PERINGGIT</site> 
+	  <site id="8518" system="gravity" url="NONE" desc="done">BUKIT ASU LAMA</site> 
+	  <site id="8519" system="gravity" url="NONE" desc="done">BUKIT ASU BARU</site> 
+	  <site id="8520" system="gravity" url="NONE" desc="done">BUKIT BAKUL LAMA</site> 
+	  <site id="8522" system="pump" url="NONE" desc="done">FELDA BUKIT SENGGEH</site> 
+	  <site id="8523" system="gravity" url="NONE" desc="done">KESANG PAJAK</site> 
+	  <site id="8524" system="gravity" url="NONE" desc="done">SELANDAR 1</site> 
+	  <site id="8525" system="pump" url="NONE" desc="done">BUKIT SEDANAN</site> 
+	  <site id="8526" system="gravity" url="NONE" desc="done">KOLAM BUKIT TIGA 2</site> 
+	  <site id="8527" system="pump" url="NONE" desc="done">SENANDONG 2</site> 
+	  <site id="8528" system="pump" url="NONE" desc="done">SENANDONG 1</site> 
+	  <site id="8529" system="gravity" url="NONE" desc="done">LENDU</site> 
+	  <site id="8530" system="gravity" url="NONE" desc="done">BUKIT SEKAWANG</site> 
+	  <site id="8531" system="gravity" url="NONE" desc="done">KOLAM AIR BEMBAN 1</site> 
+	  <site id="8532" system="gravity" url="NONE" desc="done">KOLAM AIR BEMBAN 2</site> 
+	  <site id="8533" system="pump" url="NONE" desc="done">BUKIT LARANG INDAH</site> 
+	  <site id="8534" system="pump" url="NONE" desc="done">DUYONG ELEVATED</site> 
+	  <site id="8535" system="gravity" url="NONE" desc="done">AIR KEROH GOLF</site> 
+	  <site id="8536" system="rotor" url="NONE" desc="done">BUKIT BERANGAN</site> 
+	  <site id="8537" system="pump" url="NONE" desc="done">SENANDONG A</site> 
+	  <site id="8538" system="gravity" url="NONE" desc="done">MUZAFFAR SHAH</site> 
+	  <site id="8539" system="pump" url="NONE" desc="done">BUKIT LESONG BATU</site> 
+	  <site id="8540" system="gravity" url="NONE" desc="done">MITC INDUSTRI</site> 
+	  <site id="8541" system="pump" url="NONE" desc="done">TMN BUKIT CHENG</site> 
+	  <site id="8542" system="gravity" url="NONE" desc="done">CHENG BARU</site> 
+	  <site id="8543" system="gravity" url="NONE" desc="done">CHENG LAMA</site> 
+	  <site id="8544" system="gravity" url="NONE" desc="done">CHENG PERDANA</site> 
+	  <site id="8545" system="gravity" url="NONE" desc="done">TMN CHENG JAYA</site> 
+	  <site id="8546" system="gravity" url="NONE" desc="done">TMN PERTAM JAYA</site> 
+	  <site id="8547" system="pump" url="NONE" desc="done">KOLAM TANAH MERAH JAYA</site> 
+	  <site id="8548" system="pump" url="NONE" desc="done">KOLAM AIR SALAK BARU</site> 
+	  <site id="8549" system="pump" url="NONE" desc="done">KOLAM AIR SALAK LAMA</site> 
+	  <site id="8550" system="gravity" url="NONE" desc="done">BKT. RAMBAI IND. BAWAH</site> 
+	  <site id="8551" system="pump" url="NONE" desc="done">BKT. RAMBAI IND. ATAS</site> 
+	  <site id="8552" system="pump" url="NONE" desc="done">TMN HANG TUAH ATAS</site> 
+	  <site id="8553" system="pump" url="NONE" desc="done">TMN PERUNA</site> 
+	  <site id="8554" system="gravity" url="NONE" desc="done">INDUSTRI KELEMAK</site> 
+	  <site id="8555" system="pump" url="NONE" desc="done">SG BULUH</site> 
+	  <site id="8556" system="gravity" url="NONE" desc="done">BKT PANDAN</site> 
+	  <site id="8557" system="gravity" url="NONE" desc="done">BUKIT BULAT</site> 
+	  <site id="8558" system="pump" url="NONE" desc="done">HUTAN PERCHA</site> 
+	  <site id="8559" system="gravity" url="NONE" desc="done">KOLAM RAMUAN CINA BESAR</site> 
+	  <site id="8560" system="gravity" url="NONE" desc="done">TG BIDARA</site> 
+	  <site id="8561" system="pump" url="NONE" desc="done">BUKIT BAKUL BARU</site> 
+	  <site id="8562" system="gravity" url="NONE" desc="done">BUKIT KUDA</site> 
+	  <site id="8563" system="pump" url="NONE" desc="done">PULAU SEBANG TAMPIN</site> 
+	  <site id="8564" system="gravity" url="NONE" desc="done">PULAU BESAR</site> 
+	  <site id="8566" system="gravity" url="NONE" desc="done">MITC</site> 
+	  <site id="8567" system="gravity" url="NONE" desc="done">EMPANGAN DURIAN TUNGGAL</site> 
+	  <site id="8568" system="gravity" url="NONE" desc="done">EMPANGAN JUS</site> 
+	  <site id="8569" system="gravity" url="NONE" desc="done">TMN SRI PERTAM</site> 
+	  <site id="8570" system="gravity" url="NONE" desc="done">TMN DEBUNGA</site> 
+	  <site id="8571" system="rotor" url="NONE" desc="done">KOLAM BKT PERAH BARU</site> 
+	  <site id="8572" system="pump" url="NONE" desc="done">KOLAM BKT PERAH ABJV</site> 
+	  <site id="8573" system="gravity" url="NONE" desc="done">TANGKI TAMAN PAHLAWAN</site> 
+	  <site id="8574" system="gravity" url="NONE" desc="done">TANGKI SEMUJUK</site> 
+	  <site id="8575" system="gravity" url="NONE" desc="done">ASAHAN BARU</site> 
+	  <site id="8576" system="gravity" url="NONE" desc="done">TMN SOLOK MERIANG</site> 
+	  <site id="8577" system="gravity" url="NONE" desc="done">TANGKI KESANG DAMAI</site> 
+	  <site id="8578" system="pump" url="NONE" desc="done">BUKIT SENGGEH BARU</site> 
+	  <site id="8579" system="pump" url="NONE" desc="done">TANGKI ORG.ASLI BKT.KOMING</site> 
+	  <site id="8580" system="gravity" url="NONE" desc="done">BKT.SEBUKOR(2.5 MGD)</site> 
+	  <site id="8581" system="gravity" url="NONE" desc="done">BKT.SEBUKOR(2.0)</site> 
+	  <site id="8582" system="gravity" url="NONE" desc="done">BKT LESONG BATU BAWAH</site> 
+	  <site id="8583" system="gravity" url="NONE" desc="done">TOWER LORONG PANDAN 1</site> 
+	  <site id="8584" system="gravity" url="NONE" desc="done">TOWER LORONG PANDAN 2</site> 
+	  <site id="8585" system="gravity" url="NONE" desc="done">TAMAN TASIK UTAMA</site> 
+	  <site id="8586" system="pump" url="NONE" desc="done">TMN SRI MERANTI KENDONG</site> 
+	  <site id="8587" system="pump" url="NONE" desc="done">ZARINA IND.PARK HIGH LEVEL</site> 
+	  <site id="8588" system="gravity" url="NONE" desc="done">KOLAM BUKIT TIGA 1</site> 
+	  <site id="8589" system="gravity" url="NONE" desc="done">KOLAM BUKIT DUYUNG</site> 
+	  <site id="8590" system="pump" url="NONE" desc="done">TMN MEWAH KELEMAK ATAS</site> 
+	  <site id="8591" system="gravity" url="NONE" desc="done">KG BARU TABOH NANING</site> 
+	  <site id="8592" system="pump" url="NONE" desc="done">RUMAH AWAM KEMUNING</site> 
+	  <site id="8610" system="gravity" url="NONE" desc="done">MACAP BARU</site> 
+	  <site id="8611" system="gravity" url="NONE" desc="done">PEKAN RAMUAN CINA BESAR</site> 
+	  <site id="8612" system="pump" url="NONE" desc="done">PERKAMPUNGAN BARU TANAH MERAH</site> 
+	  <site id="8613" system="gravity" url="NONE" desc="done">KOLAM AIR BKT SERAYA</site> 
+	  <site id="8614" system="pump" url="NONE" desc="done">FELCRA RAMUAN CINA</site> 
+	  <site id="8615" system="gravity" url="NONE" desc="done">IND.PENGKALAN BALAK BAWAH</site> 
+	  <site id="8616" system="pump" url="NONE" desc="done">IND.PENGKALAN BALAK ATAS</site> 
+	  <site id="8617" system="gravity" url="NONE" desc="done">BUKIT SEBUKOR (1.25)</site>
+	  <site id="8618" system="gravity" url="NONE" desc="done">BUKIT SEBUKOR CWT</site> 
+	  <site id="8619" system="gravity" url="NONE" desc="done">MITC INDUSTRI 2</site> 
+	  <site id="8620" system="gravity" url="NONE" desc="done">BANDAR BARU SG UDANG</site> 
+	  <site id="8621" system="pump" url="NONE" desc="done">TAMAN INDAH</site> 
+	  <site id="8622" system="gravity" url="NONE" desc="done">KOLAM AIR BUKIT SENJUANG</site> 
+	  <site id="8623" system="gravity" url="NONE" desc="done">LOJI BERTAM DAF CWT</site> 
+	  <site id="8624" system="gravity" url="NONE" desc="done">LOJI BERTAM LAMA CWT1 (PLUGER)</site> 
+	  <site id="8625" system="gravity" url="NONE" desc="done">LOJI BERTAM CWT2 (KUBOTA)</site> 
+	  <site id="8626" system="gravity" url="NONE" desc="done">LOJI BERTAM CWT3 (PCM)</site> 
+	  <site id="8627" system="gravity" url="NONE" desc="done">BUKIT BERUANG</site> 
+	  <site id="8628" system="gravity" url="NONE" desc="done">FELDA BKT SENGGEH (SUCT)</site> 
+	  <site id="8629" system="gravity" url="NONE" desc="done">TAMAN PAYA RUMPUT INDAH</site> 
+	  <site id="8630" system="gravity" url="NONE" desc="done">LOJI MERLIMAU CLEAR WATER TANK</site> 
+	  <site id="8631" system="gravity" url="NONE" desc="done">LOJI GADEK CWT</site> 
+	  <site id="8632" system="gravity" url="NONE" desc="done">KOLAM AIR SOLOK JENUANG</site> 
+	  <site id="8633" system="gravity" url="NONE" desc="done">TAMAN PAYA RUMPUT INDAH (ATAS)</site> 
+	  <site id="8634" system="gravity" url="NONE" desc="done">TAMAN HANG TUAH BAWAH</site> 
+	  <site id="8635" system="gravity" url="NONE" desc="done">KOLAM BANDAR BARU MASJID</site> 
+	  <site id="8636" system="pump" url="NONE" desc="done">TAMAN SRI KEMENDOR ELEVATED</site> 
+	  <site id="8637" system="gravity" url="NONE" desc="done">KOLAM SERKAM DARAT</site> 
+	  <site id="8638" system="gravity" url="NONE" desc="done">KOLAM BATANG MELAKA LAMA</site> 
+	  <site id="8639" system="gravity" url="NONE" desc="done">TAMAN MAJU</site> 
+	  <site id="8640" system="gravity" url="NONE" desc="done">KOLAM ALOR GAJAH LOW LEVEL</site>
+  <site id="8686" system="gravity" url="NONE" desc="done">Alor Gajah High Level</site>
+	  <site id="8641" system="gravity" url="NONE" desc="done">TANGKI TAMAN KEJORA TEBONG</site>
+  <site id="8663" system="pump" url="NONE" desc="done">TMN DESA IDAMAN</site>
+  
+  <site id="8687" system="gravity" url="NONE" desc="done">SIMPANG BEKOH SUCTION</site>
+       <site id="8647" system="gravity" url="NONE" desc="done">KOLAM BUKIT BUSUK</site>
+      <site id="8649" system="pump" url="NONE" desc="done">KOLAM DIMENSI LENDU</site>
+      <site id="8648" system="gravity" url="NONE" desc="done">KOLAM KELEMAK JAYA</site>
+      <site id="8653" system="gravity" url="NONE" desc="done">KOLAM MENGGONG</site>
+      <site id="8652" system="gravity" url="NONE" desc="done">KOLAM PULAU SEBANG 3</site>
+      <site id="8651" system="gravity" url="NONE" desc="done">KOLAM RUMAH AWAN LENDU</site>
+      <site id="8650" system="gravity" url="NONE" desc="done">KOLAM SEBANG GEMILANG</site>
+
+      <site id="8644" system="gravity" url="NONE" desc="done">KOLAM AIR ZAWATI</site>
+      <site id="8645" system="gravity" url="NONE" desc="done">TAMAN BUKIT LARANG INDAH SUCTION</site>
+      <site id="8646" system="gravity" url="NONE" desc="done">TANGKI SEDUTAN TYT</site>
+      <site id="8643" system="pump" url="NONE" desc="done">TAMAN KRUBONG PERDANA</site>
+
+      <site id="8657" system="gravity" url="NONE" desc="done">TANGKI KG SRI KESANG</site>
+      <site id="8659" system="gravity" url="NONE" desc="done">TANGKI JUS PERMAI</site>
+      <site id="8656" system="gravity" url="NONE" desc="done">TAMAN BEMBAN UTAMA</site>
+      <site id="8642" system="gravity" url="NONE" desc="done">KOLAM BUKIT JUS</site>
+      <site id="8658" system="gravity" url="NONE" desc="done">BKT SENGGEH BARU SUCT</site>
+      <site id="8660" system="gravity" url="NONE" desc="done">BKT SEDANAN SUCTION</site>
+      <site id="8655" system="pump" url="NONE" desc="done">TAMAN KELUBI DAMAI</site>
+
+      <site id="8661" system="gravity" url="NONE" desc="done">SG RAMBAI</site>
+      <site id="8662" system="gravity" url="NONE" desc="done">TANGKI BKT BARU</site>
+      <site id="8664" system="pump" url="NONE" desc="done">BKT PERAH ABJV</site>
+
+      <site id="8674" system="gravity" url="NONE" desc="done">TANGKI TAMAN MEWAH KELEMAK SUCTION</site>
+      <site id="8669" system="gravity" url="NONE" desc="done">TANGKI RUMAH AWAM DURIAN TUNGGAL</site>
+      <site id="8670" system="gravity" url="NONE" desc="done">TANGKI TAMAN KEBAYA</site>
+      <site id="8667" system="gravity" url="NONE" desc="done">TANGKI TAMAN GAMELAN</site>
+      <site id="8673" system="gravity" url="NONE" desc="done">TANGKI KG BARU TANAH MERAH SUCTION</site>
+      <site id="8675" system="gravity" url="NONE" desc="done">TAMAN PERUNA SUCTION</site>
+
+
+      <site id="8672" system="gravity" url="NONE" desc="done">TANGKI PADANG KAMBING SUCTION</site>
+      <site id="8668" system="gravity" url="NONE" desc="done">TANGKI BUKIT APIT SUCTION</site>
+      <site id="8671" system="gravity" url="NONE" desc="done">TANGKI PULAU SEBANG TAMPIN SUCTION</site>
+      <site id="8666" system="gravity" url="NONE" desc="done">TANAH MERAH SUCTION</site>
+      <site id="8681" system="gravity" url="NONE" desc="done">BUKIT BULAT TIGA</site>
+      <site id="8683" system="gravity" url="NONE" desc="done">Vendor City Suction</site>
+      <site id="8682" system="gravity" url="NONE" desc="done">Meranti Kendonr Suction</site>
+      <site id="8685" system="gravity" url="NONE" desc="done">Tangki Taman Kemendor Suction</site>
+      <site id="8684" system="gravity" url="NONE" desc="done">Taman Kelubi Damai Suction</site>
+
+      <site id="8678" system="gravity" url="NONE" desc="done">Bukit Peringgit Suction</site>
+      <site id="8680" system="pump" url="NONE" desc="done">Track Center Suction</site>
+      <site id="8679" system="pump" url="NONE" desc="done">Track Center</site>
+      <site id="8677" system="gravity" url="NONE" desc="done">Taman Bukit Cheng Suction</site>
+      <site id="8665" system="gravity" url="NONE" desc="done">Taman Sri Bertam</site>
+      <site id="8676" system="gravity" url="NONE" desc="done">Limbungan Permai</site>
+
+  <site id="8705" system="gravity" url="NONE" desc="done">TMN TJG MINYAK UTAMA</site>
+  <site id="8692" system="gravity" url="NONE" desc="done">TANGKI PPR SG PUTAT</site>
+  <site id="8699" system="gravity" url="NONE" desc="done">BDR BARU MASJID TANAH</site>
+  <site id="8700" system="gravity" url="NONE" desc="done">HUTAN PERCHA (SUCT)</site>
+  <site id="8688" system="gravity" url="NONE" desc="done">TAMAN BUKIT MAS</site>
+  <site id="8697" system="gravity" url="NONE" desc="done">TMN BIDARA INDAH</site>
+  <site id="8695" system="pump" url="NONE" desc="done">VENDOR CITY ATAS</site>
+  <site id="8698" system="gravity" url="NONE" desc="done">TMN TANJUNG DAHANS</site>
+ 
+
+</mimic_map>

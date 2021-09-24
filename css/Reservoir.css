@@ -1,0 +1,650 @@
+﻿a#pic
+{
+    text-decoration: none;
+    color: white;
+}
+
+.background
+{
+    position: absolute;
+    top: 1px;
+    left: 3px;
+    z-index: 1;
+}
+.water_indicator
+{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 5px;
+    background-color: Aqua;
+    bottom: 0px;
+    filter: alpha(opacity=75);
+    -moz-opacity: .75;
+    opacity: .75;
+}
+
+.pump_run
+{
+    width: 33px;
+    height: 33px;
+    background-image: url(../images/pump_run.gif);
+    background-repeat: no-repeat;
+    cursor: default;
+}
+.pump_stop
+{
+    width: 33px;
+    height: 33px;
+    background-image: url(../images/pump_stop.gif);
+    background-repeat: no-repeat;
+    cursor: default;
+}
+.pump_off
+{
+    width: 33px;
+    height: 33px;
+    background-image: url(../images/pump_off.gif);
+    background-repeat: no-repeat;
+    cursor: default;
+}
+.pump_trip
+{
+    width: 33px;
+    height: 33px;
+    background-image: url(../images/pump_trip.png);
+    background-repeat: no-repeat;
+    cursor: default;
+}
+
+.labeling
+{
+    font-family: verdana;
+    font-size: 13px;
+    font-weight: bolder;
+    color: darkslateblue;
+    text-align: right;
+    cursor: default;
+}
+.indicator
+{
+    width: 110px;
+    background: transparent;
+    font-family: verdana;
+    font-size: 11px;
+    font-weight: bolder;
+    color: lime;
+    text-align: left;
+}
+
+.rtu_island
+{
+    width: 235px;
+    height: 30px;
+}
+.labelhead
+{
+    font-family: verdana;
+    font-size: 10px;
+    font-style: italic;
+    font-weight: bolder;
+    color: yellow;
+    text-align: right;
+    cursor: default;
+}
+.labels
+{
+    width: 60px;
+    font-family: verdana;
+    font-size: 10px;
+    font-weight: bolder;
+    color: darkslateblue;
+    text-align: right;
+    cursor: default;
+}
+.labelsa
+{
+    width: 58px;
+    font-family: verdana;
+    font-size: 10px;
+    font-weight: bolder;
+    color: white;
+    text-align: right;
+    cursor: default;
+}
+.ok
+{
+    background: transparent;
+    font-family: verdana;
+    font-size: 10px;
+    font-weight: bolder;
+    color: yellow;
+    text-align: right;
+}
+.fail
+{
+    background: transparent;
+    font-family: verdana;
+    font-size: 10px;
+    font-weight: bolder;
+    color: red;
+    text-align: right;
+}
+.pointer
+{
+    cursor: pointer;
+}
+
+.waterlevel
+{
+    position: absolute;
+    bottom: 0px;
+    background-color: #72f8fe;
+    z-index: 2;
+    filter: alpha(opacity=75);
+    -moz-opacity: .75;
+    opacity: .75;
+}
+.overflowlevel
+{
+    position: absolute;
+    bottom: 0px;
+    background-color: red;
+    z-index: 2;
+    filter: alpha(opacity=75);
+    -moz-opacity: .75;
+    opacity: .75;
+}
+
+.up
+{
+    position: absolute;
+    z-index: 2;
+    width: 25px;
+    height: 25px;
+    background-image: url(../images/up.png);
+    background-repeat: no-repeat;
+}
+.down
+{
+    position: absolute;
+    z-index: 2;
+    width: 25px;
+    height: 25px;
+    background-image: url(../images/down.png);
+    background-repeat: no-repeat;
+}
+.left
+{
+    position: absolute;
+    z-index: 2;
+    width: 25px;
+    height: 25px;
+    background-image: url(../images/left.png);
+    background-repeat: no-repeat;
+}
+.right
+{
+    position: absolute;
+    z-index: 2;
+    width: 25px;
+    height: 25px;
+    background-image: url(../images/right.png);
+    background-repeat: no-repeat;
+}
+
+.rtu_island
+{
+    width: 222px;
+    height: 30px;
+    background-image: url(../custom/img/rtu_box.png);
+    background-repeat: no-repeat;
+}
+.info_box
+{
+    width: 159px;
+    height: 16px;
+    background-image: url(../images/h_default.png);
+    background-repeat: no-repeat;
+}
+.labelingW
+{
+    width: 60px;
+    font-family: verdana;
+    font-size: 10px;
+    font-weight: bolder;
+    color: white;
+    text-align: left;
+    cursor: default;
+}
+.ana_box
+{
+    width: 178px;
+    height: 31px;
+    background-image: url(../images/3box.png);
+    background-repeat: no-repeat;
+}
+.flow_box
+{
+    width: 178px;
+    height: 31px;
+    background-image: url(../images/flowntotal.png);
+    background-repeat: no-repeat;
+}
+.acc_box
+{
+    width: 120px;
+    height: 16px;
+    background-image: url(../images/waterlevel.png);
+    background-position: 0px -30px;
+    background-repeat: no-repeat;
+}
+.tag
+{
+    font-family: verdana;
+    font-size: 10px;
+    font-style: italic;
+    font-weight: bolder;
+    color: white;
+    text-align: right;
+    cursor: default;
+}
+.hl_info
+{
+    width: 110px;
+    height: 16px;
+    background: transparent url(../images/hl_info.png) no-repeat left top;
+}
+.door_info
+{
+    width: 153px;
+    height: 16px;
+    background: transparent url(../images/door_info.png) no-repeat left top;
+}
+
+div#header
+{
+    position: absolute;
+    z-index: 3;
+    left: 13px;
+    top: 8px;
+    font-size: 22px;
+    font-family: verdana;
+    font-weight: bold;
+    color: white;
+}
+div#footer
+{
+    position: absolute;
+    z-index: 3;
+    background-image: url(../images/footbg.png);
+    background-repeat: repeat;
+    left: 0px;
+    top: 610px;
+    width: 100%;
+    height: 27px;
+}
+div#footer_istik
+{
+    position: absolute;
+    z-index: 3;
+    background-image: url(../images/footbg.png);
+    background-repeat: repeat;
+    left: 0px;
+    top: 700px;
+    width: 100%;
+    height: 27px;
+}
+.foot_copy
+{
+    position: absolute;
+    z-index: 3;
+    top: 8px;
+    left: 8px;
+    color: #5373a2;
+    font-family: Verdana;
+    font-size: 10px;
+}
+.foot_note
+{
+    position: absolute;
+    z-index: 3;
+    top: -15px;
+    right: 20px;
+    color: black;
+    font-family: Verdana;
+    font-size: 10px;
+}
+div#reservoir
+{
+    font-family: verdana;
+    font-size: 14px;
+    font-weight: bolder;
+    color: white;
+    text-align: center;
+}
+div#suction
+{
+    font-family: verdana;
+    font-size: 14px;
+    font-weight: bolder;
+    color: white;
+    text-align: center;
+}
+div#logo
+{
+    position: absolute;
+    top: 449px;
+    left: 540px;
+    background-color: white;
+    z-index: 2;
+}
+
+#xisland
+{
+    background: #1e1e5d;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #1e1e5d;
+    width: 215px;
+    height: 43px;
+}
+div#poll
+{
+    font-family: verdana;
+    font-size: 13px;
+    font-weight: bolder;
+    color: blue;
+    text-align: left;
+}
+.some
+{
+    font-family: verdana;
+    font-size: 13px;
+    color: lightblue;
+}
+
+.pump_ctl
+{
+    z-index: 2;
+    width: 25px;
+    height: 31px;
+    background: #afafaf;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+.on_button
+{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 21px;
+    height: 12px;
+    background: red;
+    color: black;
+    font-family: verdana;
+    font-size: 9px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.off_button
+{
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    width: 21px;
+    height: 12px;
+    background: green;
+    color: black;
+    font-family: verdana;
+    font-size: 9px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.pump_ctl_tubewell
+{
+    background: #afafaf;
+    border: 3px solid #afafaf;
+}
+.on_button_tubewell
+{
+    width: 40px;
+    background: red;
+    color: black;
+    font-family: verdana;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 3px 4px;
+    border: 3px;
+    cursor: pointer;
+}
+.off_button_tubewell
+{
+    width: 50px;
+    background: green;
+    color: black;
+    font-family: verdana;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 3px 4px;
+    border: 3px;
+    cursor: pointer;
+}
+/* Password Dialog */
+
+div#pass_sect
+{
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    width: 237px;
+    height: 64px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #CBD6E4;
+}
+.cancel_butt
+{
+    position: absolute;
+    left: 96px;
+    top: 83px;
+    width: 60px;
+    height: 21px;
+    border-width: 0px;
+    border-style: double;
+    border-color: #CBD6E4;
+    text-align: center;
+}
+.ok_butt
+{
+    position: absolute;
+    left: 176px;
+    top: 20px;
+    width: 60px;
+    height: 18px;
+    border-width: 3px;
+    border-style: double;
+    border-color: #CBD6E4;
+    text-align: center;
+    cursor: pointer;
+    font-family: verdana;
+    font-size: 12px;
+}
+.F_onlight
+{
+    background: transparent;
+    font-family: verdana;
+    font-size: 11px;
+    font-weight: bolder;
+    color: black;
+    text-align: left;
+    overflow: visible;
+}
+.F_small_onlight
+{
+    background: transparent;
+    font-family: verdana;
+    font-size: 9px;
+    color: black;
+    text-align: left;
+    overflow: visible;
+}
+.lbAction
+{
+    font-family: verdana;
+    font-size: 12px;
+}
+.inputStyle
+{
+    color: #0B3D62;
+    font-size: 10pt;
+    font-family: Verdana;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #CBD6E4;
+}
+
+/* lightBox Properties */
+
+a, a:active, a:visited
+{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover
+{
+    color: black;
+}
+
+h1
+{
+    font-size: 3em;
+    color: #FFCC00;
+}
+
+#container
+{
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#progress
+{
+    color: #333;
+    position: absolute;
+    top: 26%;
+    left: 36%;
+    width: 230px;
+    height: 85px;
+    padding: 5px;
+    border: 1px solid white;
+    background-color: white;
+    text-align: center;
+    z-index: 1002;
+}
+
+#l_mesej
+{
+    color: #c0c0c0;
+    font-family: verdana;
+    font-size: 13px;
+}
+
+.footer
+{
+    background-color: #000;
+    padding: 0.5em;
+}
+
+.leightbox
+{
+    color: #333;
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    width: 247px;
+    height: 97px;
+    padding: 5px;
+    border: 1px solid black;
+    background-color: white;
+    text-align: left;
+    z-index: 1001;
+    overflow: auto;
+}
+
+#overlay
+{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: #333;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+}
+
+.lightbox[id]
+{
+    /* IE6 and below Can't See This */
+    position: fixed;
+}
+#overlay[id]
+{
+    /* IE6 and below Can't See This */
+    position: fixed;
+}
+
+/*For Set Pump On and Off popup*/
+.p_popup
+{
+    font-family: verdana;
+    font-size: 9px;
+}
+
+.overlay_popup
+{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: Black;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    z-index: 10;
+}
+
+.setPump_popup
+{
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    width: 240px;
+    background-color: White;
+    margin: -70px 0 0 -120px;
+    z-index: 11;
+}
+
+.btnClose_popup
+{
+    text-align: center;
+    cursor: pointer;
+}
+
+.fieldset_popup
+{
+    border-color: #F00;
+    border-style: solid;
+}

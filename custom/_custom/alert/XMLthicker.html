@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+</head>
+<body>
+
+<script language="JavaScript1.2">
+
+/*
+DOM XML ticker- © Dynamic Drive (www.dynamicdrive.com)
+For full source code, 100's more DHTML scripts, and Terms Of Use, visit http://www.dynamicdrive.com
+Credit MUST stay intact
+*/
+
+//Container for ticker. Modify its STYLE attribute to customize style:
+var tickercontainer='<div id="container" style="background-color:#FFFFE1;width:150px;height:120px;font:normal 13px Verdana;"></div>'
+
+//Specify path to xml file
+var xmlsource="ticker.xml"
+
+////No need to edit beyond here////////////
+//load xml file
+if (window.ActiveXObject)
+var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+else if (document.implementation && document.implementation.createDocument)
+var xmlDoc= document.implementation.createDocument("","doc",null);
+if (typeof xmlDoc!="undefined"){
+document.write(tickercontainer)
+xmlDoc.load(xmlsource)
+}
+
+//Regular expression used to match any non-whitespace character
+var notWhitespace = /\S/
+
+function init_ticker(){
+//Cache "messages" element of xml file
+tickerobj=xmlDoc.getElementsByTagName("xmlticker")[0]
+
+//REMOVE white spaces in XML file. Intended mainly for NS6/Mozilla
+for (i=0;i<tickerobj.childNodes.length;i++){
+if ((tickerobj.childNodes[i].nodeType == 3)&&(!notWhitespace.test(tickerobj.childNodes[i].nodeValue))) {
+tickerobj.removeChild(tickerobj.childNodes[i])
+i--
+}
+}
+document.getElementById("container").innerHTML=tickerobj.childNodes[1].firstChild.nodeValue
+msglength=tickerobj.childNodes.length
+currentmsg=2
+themessage=''
+setInterval("rotatemsg()",tickerobj.childNodes[0].firstChild.nodeValue)
+}
+
+function rotatemsg(){
+var msgsobj=tickerobj.childNodes[currentmsg]
+if (msgsobj.getAttribute("url")!=null){
+themessage='<a href="'+msgsobj.getAttribute("url")+'"'
+if (msgsobj.getAttribute("target")!=null)
+themessage+=' target="'+msgsobj.getAttribute("target")+'"'
+themessage+='>'
+}
+themessage+=msgsobj.firstChild.nodeValue
+if (msgsobj.getAttribute("url")!=null)
+themessage+='</a>'
+
+//Rotate msg and display it in DIV:
+document.getElementById("container").innerHTML=themessage
+currentmsg=(currentmsg<msglength-1)? currentmsg+1 : 1
+themessage=''
+}
+
+function fetchxml(){
+if (xmlDoc.readyState==4)
+init_ticker()
+else
+setTimeout("fetchxml()",10)
+}
+
+if (window.ActiveXObject)
+fetchxml()
+else if (typeof xmlDoc!="undefined")
+xmlDoc.onload=init_ticker
+
+</script>
+
+
+
+</body>
+</html>

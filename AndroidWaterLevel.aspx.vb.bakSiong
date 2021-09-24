@@ -1,0 +1,72 @@
+﻿Imports System.Data.SqlClient
+Imports Newtonsoft.Json
+
+Partial Class AndroidSiteDistrict
+    Inherits System.Web.UI.Page
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Try
+            Dim SiteDist As String = Request.QueryString("sd")
+            Dim SiteType As String = Request.QueryString("st")
+            Dim SiteName As String = Request.QueryString("sn")
+            GetJson(SiteName, SiteType, SiteDist)
+        Catch ex As Exception
+            Throw New HttpException(ex.ToString())
+        End Try
+
+    End Sub
+
+    Protected Function GetJson(ByVal sName As String, ByVal sType As String, ByVal sDist As String) As String
+
+        Dim countLogin As Integer = 0
+        Dim Json As String = ""
+        Dim JsonArr As ArrayList = New ArrayList
+
+        Try
+
+            Dim connstr As String = System.Configuration.ConfigurationManager.AppSettings("sqlserverconnectionSAMB")
+            Dim conn As New SqlConnection(connstr)
+            Dim cmd As New SqlCommand("SELECT value, dtimestamp from telemetry_equip_status_table where siteid=(Select siteid from telemetry_site_list_table where sitename = @SiteName and sitetype = @SiteType and sitedistrict = @SiteDist)", conn)
+            With cmd.Parameters
+                .Add(New SqlParameter("@SiteName", sName))
+                .Add(New SqlParameter("@SiteType", sType))
+                .Add(New SqlParameter("@SiteDist", sDist))
+            End With
+
+            conn.Open()
+            Dim dr As SqlDataReader = cmd.ExecuteReader()
+            While dr.Read()
+                Dim temp As New ReturnData()
+                temp.WaterLevel = dr("value") & " meters"
+                temp.TimeStamp = dr("dtimestamp")
+                JsonArr.Add(temp)
+            End While
+            conn.Close()
+
+            If JsonArr.Count = 0 Then
+                Dim temp As New ReturnData()
+                temp.WaterLevel = "0 meter"
+                temp.TimeStamp = ""
+                JsonArr.Add(temp)
+            End If
+
+            Json = JsonConvert.SerializeObject(JsonArr)
+            Json = Json.Substring(1, Json.Length - 2)
+
+            Context.Response.ContentType = "application/json"
+            Context.Response.Write(Json)
+
+        Catch ex As Exception
+            Throw New HttpException(ex.ToString())
+        End Try
+
+        Return Json
+
+    End Function
+
+    Private Structure ReturnData
+        Public WaterLevel As String
+        Public TimeStamp As String
+    End Structure
+
+End Class

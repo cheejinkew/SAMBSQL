@@ -1,0 +1,178 @@
+﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="UsermanagementSAMB.aspx.vb" Inherits="USERR" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script type="text/javascript" language="javascript">
+        function checkall(chkobj) {
+            var chkvalue = chkobj.checked;
+            for (i = 0; i < document.forms[0].elements.length; i++) {
+                elm = document.forms[0].elements[i]
+                if (elm.type == 'checkbox') {
+                    document.forms[0].elements[i].checked = chkvalue;
+                }
+            }
+        }
+        function deleteconfirmation() {
+            var checked = false;
+            for (i = 0; i < document.forms[0].elements.length; i++) {
+                elm = document.forms[0].elements[i]
+                if (elm.type == 'checkbox') {
+                    if (elm.checked == true) {
+                        checked = true;
+                        break;
+                    }
+                }
+            }
+            if (checked) {
+                var result = confirm("Are you delete checked users ?");
+                if (result) {
+                    return true;
+                }
+                return false;
+            }
+            else {
+                alert("Please select checkboxes");
+                return false;
+            }
+        }
+    </script>
+
+    <style type="text/css">
+        .style1
+        {
+            width: 94%;
+            height: 249px;
+        }
+        .style2
+        {
+            height: 41px;
+        }
+        .style3
+        {
+            height: 41px;
+            width: 45px;
+        }
+        .style4
+        {
+            width: 45px;
+        }
+        .style5
+        {
+            width: 350px;
+            height: 24px;
+        }
+        .style6
+        {
+            height: 24px;
+            width: 45px;
+        }
+        .style7
+        {
+            height: 24px;
+        }
+a { text-decoration: none;}
+        .style8
+        {
+            width: 45px;
+            height: 171px;
+        }
+        .style9
+        {
+            height: 171px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="height: 330px">
+    
+        <table class="style1">
+            <tr>
+                <td class="style3">
+                    &nbsp;</td>
+                <td class="style2" colspan="2">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style6">
+                </td>
+                <td class="style7">
+                </td>
+                <td class="style5">
+            <p align="right"><b><font size="1" face="Verdana"><a href="AddUserSamb.aspx">Add New User</a></font></b></td>
+            </tr>
+            <tr>
+                <td class="style8">
+                    </td>
+                <td colspan="2" class="style9">
+                   <asp:GridView ID="usergrid" runat="server" AutoGenerateColumns="False" HeaderStyle-Font-Size="12px"
+                                HeaderStyle-ForeColor="#FFFFFF" HeaderStyle-BackColor="#465AE8" HeaderStyle-Font-Bold="True"
+                                HeaderStyle-Height="22px" EnableViewState="False" HeaderStyle-HorizontalAlign="Center"
+                                Width="102%">
+                                <Columns>
+                                        <asp:BoundField DataField="chk" HeaderText="<input type='checkbox' onclick='javascript:checkall(this);' />"
+                                        HtmlEncode="False">
+                                        <ItemStyle  Width="20" />
+                                    </asp:BoundField>
+                                 
+                                        <asp:TemplateField HeaderText="username">
+                                            <ItemTemplate>
+                                            <%--<asp:Label ID="Label35" runat="server" CssClass="Labels_Details" Text='<%# string.Format("{0}{1}", "[ " + Eval("PPriceFormat")+" ", Eval("PDeposit") + " Deposit]")%>' Visible='<%# Eval("PDeposit").ToString() != "0" && Eval("PDeposit").ToString() != "" %>'></asp:Label>--%>
+                                            <%--<a href ='~\UPDATEUSERR.aspx?username=&id;%# databinder.eval(userid,"username")%&id; ,' &id></a>--%>
+                                                <asp:HyperLink ID="HyperLink1" runat="server"  datatextfield="username" NavigateUrl ='<%# String.Format("~\UpdateUserSamb.aspx?userid={0}", Eval("userid")) %>' Text ='<%# eval("username") %>' sortExpression="userid"></asp:HyperLink> 
+                                            </ItemTemplate>
+                                            <ItemStyle Font-Bold="True" Font-Italic="False" Font-Names="Verdana" 
+                                                Font-Overline="False" Font-Size="Smaller" />
+                                        </asp:TemplateField>
+                                 
+                             <asp:BoundField DataField ="pwd" HeaderText="Password" >
+                                        <ControlStyle BackColor="#336699" Font-Names="Verdana" Font-Size="Smaller" />
+                                        <ItemStyle Font-Names="Verdana" Font-Size="Smaller" />
+                                        </asp:BoundField>
+                             <asp:BoundField DataField ="phoneno" HeaderText="Phone #" >
+                                        <ControlStyle BackColor="#336699" Font-Names="Verdana" Font-Size="Smaller" />
+                                        <ItemStyle Font-Names="Verdana" Font-Size="Smaller" />
+                                        </asp:BoundField>
+                             <asp:BoundField DataField ="streetname" HeaderText="Address" >
+                                        <ControlStyle BackColor="#336699" Font-Names="Verdana" Font-Size="Smaller" />
+                                        <ItemStyle Font-Names="Verdana" Font-Size="Smaller" />
+                                        </asp:BoundField>
+                             <asp:BoundField DataField ="srole" HeaderText="Role" >
+                                 
+                                        <ControlStyle BackColor="#336699" Font-Names="Verdana" Font-Size="Smaller" />
+                                        <ItemStyle Font-Names="Verdana" Font-Size="Smaller" />
+                                        </asp:BoundField>
+                                 
+                                 <%--   <asp:HyperLinkField datatextfield="username" 
+                                    datatextformatstring ="{0:c}"
+                                    datanavigateurlfields="username"
+                                    datanavigateurlformatstring="~\UPDATEUSERR.aspx?username={0}"
+                                    headertext="username"
+                                    target="_blank" Visible="False" />--%>
+                                 
+                                </Columns>
+                                <AlternatingRowStyle BackColor="Lavender" />
+
+<HeaderStyle HorizontalAlign="Center" BackColor="#465AE8" Font-Bold="True" Font-Size="12px" ForeColor="White" Height="22px"></HeaderStyle>
+                            </asp:GridView>
+               
+                    
+                </td>
+            </tr>
+            <tr>
+                <td class="style4">
+                    &nbsp;</td>
+                <td colspan="2">
+                     <asp:Button ID="Button1" runat="server" Text="Delete" />
+                    
+                </td>
+            </tr>
+        </table>
+    
+    </div>
+    </form>
+</body>
+</html>

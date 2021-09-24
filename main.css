@@ -1,0 +1,99 @@
+div.TabView div.Tabs a:hover
+{
+	padding-left:11px;
+	height: 20px;
+	overflow: hidden;
+	background-color: white;
+}
+
+div.TabView div.Tabs a
+{
+	float: left;
+	display: block;
+	width:  100px;
+	text-align: center;
+	height:      20px;
+	padding-top: 2px;
+	vertical-align: middle;
+	border: 1px solid black;
+	text-decoration: none;
+	font-family: "verdana";
+	font-size: 12px;
+	font-style: italic;
+	font-weight: 600;
+	color: #000080;
+	align:"center";
+}
+
+div.TabView div.Tabs a:hover, div.TabView div.Tabs a.Active
+{
+	background-color: lightblue;
+}
+
+div.TabView div.Pages
+{
+	clear: both;
+	border: 1px solid #404040;
+	overflow: hidden;
+	border-bottom: 0px;
+	border-top: 0px;
+}
+
+div.TabView div.Pages div.Page
+{
+	height: 100%;
+	padding: 0px;
+	overflow: hidden;
+}
+
+div.TabView div.Pages div.Page div.Pad
+{
+	padding: 0px 5px;
+}
+
+.outerTBL
+{
+	width:500px;
+	border-width: 5px;
+	border-spacing: 2px;
+	border-style: double;
+	border-color: #5373A2;
+	border-collapse: separate;
+	background-color: white;
+}
+.innerTBL
+{
+	width:400px;
+	height:100px;
+	border-width: 2px;
+	border-spacing: 2px;
+	border-style: dashed;
+	border-color: #CFD9E7;
+	border-collapse: separate;
+	background-color: white;
+}
+.inputStyle
+{
+	color: #0B3D62;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CBD6E4;
+}
+#xlogo {z-index:10;background: transparent; margin:1em;position:absolute;bottom:8px;right:8px;width:215px;filter:alpha(opacity=55);-moz-opacity:.55;opacity:.55;visibility:visible}
+#outerDIV
+{
+	width:500px;
+	margin:1em;
+	background-color: transparent;
+}
+.xtop, .xbottom {display:block; background:transparent; font-size:1px;}
+.xb1, .xb2, .xb3, .xb4 {display:block; overflow:hidden;}
+.xb1, .xb2, .xb3 {height:1px;}
+.xb2, .xb3, .xb4 {background:#fff; border-left:1px solid #5373A2; border-right:1px solid #5373A2;}
+.xb1 {margin:0 5px; background:#5373A2;}
+.xb2 {margin:0 3px; border-width:0 2px;}
+.xb3 {margin:0 2px;}
+.xb4 {height:2px; margin:0 1px;}
+.xboxcontent {display:block; background:#fff; border:0 solid #5373A2; border-width:0 1px;height:90%;}

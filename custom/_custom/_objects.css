@@ -1,0 +1,64 @@
+a#pic { text-decoration: none; color:white}
+
+sub{font-size:8px;font-family:verdana}
+span{font-size:12px;font-family:verdana}
+td{font-family:verdana;font-size:11px}
+.rtutd{font-size:10px;font-family:verdana;color:lightblue}
+.redf{font-size:12px;font-family:verdana;color:red}
+.linksys{font-size:12px;font-family:verdana;text-decoration:underline}
+
+.tab_panel0{z-index:2;background:white;cursor:default;width:334px;text-align:center;font-family:verdana;font-size:11px;font-weight:bolder;color:black}
+.tab_panel1{z-index:2;background:gray;cursor:default;width:292px;text-align:center;font-family:verdana;font-size:11px;font-weight:bolder;color:white}
+
+.pump_run {width:14px;height:13px;background-image:url(../images/light/green_L.gif);background-repeat:no-repeat;cursor:default}
+.pump_stop {width:14px;height:13px;background-image:url(../images/light/red_L.gif);background-repeat:no-repeat;cursor:default}
+.pump_trip {width:14px;height:13px;background-image:url(../images/light/yellow_L.gif);background-repeat:no-repeat;cursor:default}
+.pump_off {width:14px;height:13px;background-image:url(../images/light/grey_L.gif);background-repeat:no-repeat;cursor:default}
+
+.labeling {width:60px;font-family:verdana;font-size:13px;font-weight:bolder;color:darkslateblue;text-align:right;cursor:default}
+.indicator {background:transparent;font-family:verdana;font-size:11px;font-weight:bolder;color:lime;text-align:left;overflow:visible}
+.indicator_med {background:transparent;font-family:verdana;font-size:10px;color:lime;text-align:left;overflow:visible}
+.indicator_small {background:transparent;font-family:verdana;font-size:9px;color:lime;text-align:left;overflow:visible}
+.red_indicator_small {background:transparent;font-family:verdana;font-size:9px;color:red;text-align:left;overflow:visible}
+.yellow_indicator_small {background:transparent;font-family:verdana;font-size:9px;color:yellow;text-align:left;overflow:visible}
+.indicator_onlight {background:transparent;font-family:verdana;font-size:11px;font-weight:bolder;color:black;text-align:left;overflow:visible}
+.indicator_small_onlight {background:transparent;font-family:verdana;font-size:9px;color:black;text-align:left;overflow:visible}
+.some{font-family:verdana;font-size:13px;font-weight:bold;color:white}
+
+.rtu_island {width:138px;height:108px;background-repeat:no-repeat}
+.panel{width:640px;height:141px;background:white;border-width:1px;border-style:solid;border-color:darkslateblue;filter:alpha(opacity=75);-moz-opacity:.75;opacity:.75;}
+.panel_title{background:grey;font-family:verdana;font-size:10px;font-weight:bolder;color:skyblue;text-align:right}
+.labelhead {font-family:verdana;font-size:11px;font-style:italic;font-weight:bolder;color:darkslateblue;text-align:right;cursor:default}
+.labels {width:60px;font-family:verdana;font-size:10px;font-weight:bolder;color:darkslateblue;text-align:right;cursor:default}
+.ok {background:transparent;font-family:verdana;font-size:10px;font-weight:bolder;color:blue;text-align:right}
+.fail {background:transparent;font-family:verdana;font-size:10px;font-weight:bolder;color:red;text-align:right}
+.pointer {cursor:pointer}
+
+.waterlevel {position:absolute;bottom:0px;background-color:#00ced1;z-index:2;filter:alpha(opacity=75);-moz-opacity:.75;opacity:.75;}
+.wat {LEFT:76px;WIDTH:377px;POSITION:absolute;TOP:318px;HEIGHT:19px;}
+.overflowlevel {position:absolute;bottom:0px;background-color:red;z-index:2;filter:alpha(opacity=75);-moz-opacity:.75;opacity:.75;}
+
+div#pump_sect{position:absolute;left:2px;top:25px;width:165px;height:112px;border-width:1px;border-style:solid;border-color:#CBD6E4}
+div#pass_sect{position:absolute;left:171px;top:25px;width:165px;height:64px;border-width:1px;border-style:solid;border-color:#CBD6E4}
+div#poll_sect{position:absolute;left:171px;top:97px;width:165px;height:40px;border-width:1px;border-style:solid;border-color:#CBD6E4}
+div#legend_sect{position:absolute;left:345px;top:25px;width:290px;height:112px;border-width:1px;border-style:solid;border-color:#CBD6E4;visibility:visible}
+div#progress_sect{position:absolute;left:2px;top:25px;width:334px;height:112px;border-width:1px;border-style:solid;border-color:#CBD6E4;background:white;visibility:hidden}
+div#header {position:absolute;z-index:3;left:20px;top:8px;font-size:24px;font-family:verdana;font-weight:bold;color:white;}
+div#footer {position:absolute;left:30px;top:502px;z-index:1;text-align:right}
+div#reservoir {font-family:verdana;font-size:14px;font-weight:bolder;color:white;text-align:center}
+div#suction {font-family:verdana;font-size:14px;font-weight:bolder;color:white;text-align:center}
+div#logo {position:absolute;top:449px;left:540px;background-color:white;z-index:2}
+
+#xisland{background:#1e1e5d;border-width:3px;border-style:solid;border-color:#1e1e5d;width:215px;height:43px}
+div#poll {font-family:verdana;font-size:13px;font-weight:bolder;color:blue;text-align:left}
+.some{font-family:verdana;font-size:13px;color:lightblue}
+
+.inputStyle
+{
+	color: #0B3D62;
+	font-size: 10pt;
+	font-family: Verdana;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CBD6E4;
+}
