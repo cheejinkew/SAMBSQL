@@ -1,5 +1,8 @@
 <%@ Page Language="VB" Debug="true" %>
 <%@ Import Namespace="ADODB" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Data.SqlClient" %>
+<%@ Import Namespace="System.Configuration" %>
 
 <Script runat="Server">
 
@@ -182,12 +185,12 @@
 <select id="trendingtypename" size="1" name="trendingtype" class="FormDropdown10" onchange="javascript:goGetRule();">
                    <option value="00">Graphical</option>
                    <option value="01">Tabular</option>
-                   <option value="02">Summary Table</option>
+				   <option value="02">Summary Table</option>
+				   <option value="03">Summary District Table</option>
                     </select>
 
 </td>
 </tr>
-
 
 </table>
 
@@ -208,9 +211,41 @@
  </table>
  <br />
 
+<div id="divDistrict" style="display:none">
+<table>
+	<tr>
+<td>
+<font face="Verdana" size="2" color="#5F7AFC"><b>Select District :</font> 
+            <select name="ddDistrict" id="ddDistrict" class="FormDropdown">
+            <option value="0" > - Select Site District -</option>
+            
+            <%
+				'objConn = New ADODB.Connection()
+				'objConn.open(strConn)
+				strConn = System.Configuration.ConfigurationManager.AppSettings("sqlserverconnectionSAMB")
+				Dim objConn1 = New SqlConnection(strConn)
+
+				Dim str2 As String = "SELECT distinct(sitedistrict) from telemetry_site_list_table"
+				objConn1.Open()
+				Dim cmd1 As New SqlCommand(str2, objConn1)
+				Dim reader As SqlDataReader = cmd1.ExecuteReader
+				While (reader.Read())
+
+					Response.Write("<option value='" & reader(0) & "'>" & reader(0) & "</option>")
+				End While
+				objConn1.Close()
 
 
+            %>
 
+               
+            </select>
+            
+            
+          </td>
+</tr>
+</table>
+	</div>
 
 <p><font face="Verdana" size="2" color="#5F7AFC"><b>Select Begin and End Date:</b></font>  <br>
   </p>
@@ -505,6 +540,7 @@
   
   function submit()
   {
+
    if (document.getElementById('HiddenField1').value=="Tabular")
 	{
 	  var obj=document.formX;
@@ -515,13 +551,22 @@
 	if (document.getElementById('HiddenField1').value=="Graphical")
 	{
       document.formX.submit();
-     }
+	  }
 
-     if (document.getElementById('HiddenField1').value == "Summary Table") {
-         var obj = document.formX;
-         obj.action = "TabularTrendSummaryTable.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>";
-         obj.submit();
-     }
+	if (document.getElementById('HiddenField1').value=="Summary Table")
+	{
+	  var obj=document.formX;
+    obj.action="TabularTrendSummaryTable.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>";
+    obj.submit();
+	  }
+
+	if (document.getElementById('HiddenField1').value=="Summary District Table")
+	{
+		var obj = document.formX;
+		var selectedDistrict = document.getElementById('ddDistrict').value;
+    obj.action="TabularTrendSummaryDistrict.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>&selectedDistrict="+selectedDistrict;
+    obj.submit();
+	}
   }
      
    function ShowCalendar(strTargetDateField, intLeft, intTop)
@@ -550,20 +595,29 @@
 	if (document.getElementById('HiddenField1').value=="Tabular")
 	{
    var obj=document.formX;
-    obj.action="TabularTrend.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District%>";
+    obj.action="TabularTrend.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>";
        obj.submit();
 	}
 	
 	if (document.getElementById('HiddenField1').value=="Graphical")
 	{
       document.formX.submit();
-     }
+	  }
 
-     if (document.getElementById('HiddenField1').value == "Summary Table") {
-         var obj = document.formX;
-         obj.action = "TabularTrendSummaryTable.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>";
-         obj.submit();
-     }
+	if (document.getElementById('HiddenField1').value=="Summary Table")
+	{
+	  var obj=document.formX;
+    obj.action="TabularTrendSummaryTable.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>";
+    obj.submit();
+	  }
+
+	if (document.getElementById('HiddenField1').value=="Summary District Table")
+	{
+		var obj = document.formX;
+		var selectedDistrict = document.getElementById('ddDistrict').value;
+    obj.action="TabularTrendSummaryDistrict.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>&selectedDistrict="+selectedDistrict;
+    obj.submit();
+	}
   }
   function twodaysdate()
   {
@@ -597,13 +651,22 @@
 	if (document.getElementById('HiddenField1').value=="Graphical")
 	{
       document.formX.submit();
-     }
+	  }
 
-     if (document.getElementById('HiddenField1').value == "Summary Table") {
-         var obj = document.formX;
-         obj.action = "TabularTrendSummaryTable.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>";
-         obj.submit();
-     }
+	if (document.getElementById('HiddenField1').value=="Summary Table")
+	{
+	  var obj=document.formX;
+    obj.action="TabularTrendSummaryTable.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>";
+    obj.submit();
+	  }
+
+	if (document.getElementById('HiddenField1').value=="Summary District Table")
+	{
+		var obj = document.formX;
+		var selectedDistrict = document.getElementById('ddDistrict').value;
+    obj.action="TabularTrendSummaryDistrict.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>&selectedDistrict="+selectedDistrict;
+    obj.submit();
+	}
   }
   function lastweakdate()
   {
@@ -638,13 +701,22 @@
 	if (document.getElementById('HiddenField1').value=="Graphical")
 	{
       document.formX.submit();
-     }
+	  }
 
-     if (document.getElementById('HiddenField1').value == "Summary Table") {
-         var obj = document.formX;
-         obj.action = "TabularTrendSummaryTable.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>";
-         obj.submit();
-     }
+	if (document.getElementById('HiddenField1').value=="Summary Table")
+	{
+	  var obj=document.formX;
+    obj.action="TabularTrendSummaryTable.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>";
+    obj.submit();
+	}
+
+	if (document.getElementById('HiddenField1').value=="Summary District Table")
+	{
+		var obj = document.formX;
+		var selectedDistrict = document.getElementById('ddDistrict').value;
+    obj.action="TabularTrendSummaryDistrict.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>&selectedDistrict="+selectedDistrict;
+    obj.submit();
+	}
   }
   function lastmonthdate()
   {
@@ -678,22 +750,33 @@
 	if (document.getElementById('HiddenField1').value=="Graphical")
 	{
       document.formX.submit();
-     }
+	  }
 
-     if (document.getElementById('HiddenField1').value == "Summary Table") {
-         var obj = document.formX;
-         obj.action = "TabularTrendSummaryTable.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>";
-         obj.submit();
-     }
-  }
-   
+	  if (document.getElementById('HiddenField1').value == "Summary Table") {
+		  var obj = document.formX;
+		  obj.action ="TabularTrendSummaryTable.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>";
+		  obj.submit();
+	  }
+
+	  if (document.getElementById('HiddenField1').value == "Summary District Table") {
+		  var obj = document.formX;
+		  var selectedDistrict = document.getElementById('ddDistrict').value;
+		  obj.action = "TabularTrendSummaryDistrict.aspx?siteid=<%=SiteID %>&sitename=<%=SiteName %>&district=<%=District %>&selectedDistrict=" + selectedDistrict;
+			obj.submit();
+		}
+	}
+
  function goGetRule()
-{
+ {
+
 var d=document.getElementById("trendingtypename");
 var selected=d.options[d.selectedIndex].text;
 
-document.getElementById('HiddenField1').value=selected;
+	 document.getElementById('HiddenField1').value = selected;
 
+	 var hiddenDiv = document.getElementById("divDistrict");
+	 hiddenDiv.style.display = (selected != "Summary District Table") ? "none":"block";
 }
+
 
 </script>
