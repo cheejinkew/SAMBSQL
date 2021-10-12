@@ -182,7 +182,7 @@
 <tr>   
 <td>
 <font face="Verdana" size="2" color="#5F7AFC"><b>Select Trending Type :</font> 
-<select id="trendingtypename" size="1" name="trendingtype" class="FormDropdown10" onchange="javascript:goGetRule();">
+<select id="trendingtypename" size="1" name="trendingtype" class="FormDropdown10" onchange="javascript:goGetRule();" hidden>
                    <option value="00">Graphical</option>
                    <option value="01">Tabular</option>
 				   <option value="02">Summary Table</option>

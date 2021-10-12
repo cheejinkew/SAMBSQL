@@ -1,5 +1,5 @@
 <%
-    Dim UserID = Request.Cookies("Telemetry")("UserID")
+	Dim UserID = Request.Cookies("Telemetry")("UserID")
 %>
 <html>
 <head>
@@ -87,6 +87,7 @@
                                                      <option value="pumprun">Pump Running Report</option>
                                                       <option value="Overflowreport">Reservoir OverFlow Report</option>
                                                       <option value="lowlevelreport">Reservoir LowLevel Report</option>
+													<option value="reservoirAnalysis">Reservoir Analysis</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -155,6 +156,10 @@
         }
         else if (strPage == "lowlevelreport") {
             document.frmAdmin.action = "OverLowerreport.aspx";
+		}
+		 else if (strPage == "reservoirAnalysis") {
+
+			document.frmAdmin.action="reservoirAnalysis.aspx";
         }
         document.frmAdmin.submit();
     }
